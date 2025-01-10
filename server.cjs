@@ -20,6 +20,9 @@ server.on("request", (req, res) => {
     } else if (req.url === "/color-palette") {
         const palette = fs.readFileSync("./color-palette.js");
         res.end(palette);
+    } else if (req.url === "/drawing") {
+        const script = fs.readFileSync("./drawing.js");
+        res.end(script);
     } else if (req.url === "/") {
         const index = fs.readFileSync("./index.html");
         res.end(index);

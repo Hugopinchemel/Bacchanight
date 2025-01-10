@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node server.cjs"
+    "start": "node server.cjs",
+    "go live": "http-server -p 8000"
   },
   "keywords": [],
   "author": "",

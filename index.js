@@ -1,6 +1,6 @@
 const colorPreview = document.getElementById('colorPreview');
 const colorCode = document.getElementById('colorCode');
-let selectedColor = '#000';
+let selectedColor = '#ffffff';
 
 colorPalette.addEventListener('click', (event) => {
     const swatch = event.target;
@@ -13,8 +13,11 @@ colorPalette.addEventListener('click', (event) => {
     }
 });
 
-document.querySelectorAll('.coloring-zone').forEach(zone => {
+document.querySelectorAll('.coloring-zone path').forEach((zone, index) => {
+    console.log(zone);
     zone.addEventListener('click', () => {
-        zone.style.backgroundColor = selectedColor;
+        console.log(zone);
+
+        zone.setAttribute('fill', selectedColor);
     });
 });

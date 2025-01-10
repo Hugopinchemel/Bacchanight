@@ -77,10 +77,40 @@ body {
 }
 
 .coloring-zone {
-    width: 100px;
-    height: 100px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fff;
     cursor: pointer;
+    pointer-events: none;
+}
+
+.coloring-zone path {
+    pointer-events: all;
+}
+
+#zone1{
+    position: absolute;
+    top: 10vw;
+    left: 10vw;
+}
+
+#zone2{
+    position: absolute;
+    top: 10vw;
+    left: 10vw;
+}
+
+#zone3{
+    position: absolute;
+    top: 10vw;
+    left: 10vw;
+}
+
+#zone4{
+    position: absolute;
+    top: 10vw;
+    left: 10vw;
+}
+
+#zone5{
+    position: absolute;
+    top: 10vw;
+    left: 10vw;
 }

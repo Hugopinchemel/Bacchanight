@@ -13,7 +13,7 @@ colorPalette.addEventListener('click', (event) => {
     }
 });
 
-document.querySelectorAll('.coloring-zone path').forEach((zone, index) => {
+document.querySelectorAll('.coloring-zone path').forEach((zone) => {
     console.log(zone);
     zone.addEventListener('click', () => {
         console.log(zone);

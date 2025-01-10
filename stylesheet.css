@@ -3,7 +3,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    flex-direction: column;
+    flex-direction: row;
     height: 100vh;
     margin: 0;
     border-radius: 12px;
@@ -79,38 +79,19 @@ body {
 .coloring-zone {
     cursor: pointer;
     pointer-events: none;
+    position: absolute;
+    top: 10vw;
+    left: 10vw;
 }
 
 .coloring-zone path {
     pointer-events: all;
 }
 
-#zone1{
+#picture {
     position: absolute;
     top: 10vw;
     left: 10vw;
-}
-
-#zone2{
-    position: absolute;
-    top: 10vw;
-    left: 10vw;
-}
-
-#zone3{
-    position: absolute;
-    top: 10vw;
-    left: 10vw;
-}
-
-#zone4{
-    position: absolute;
-    top: 10vw;
-    left: 10vw;
-}
-
-#zone5{
-    position: absolute;
-    top: 10vw;
-    left: 10vw;
+    z-index: 9999;
+    pointer-events: none;
 }

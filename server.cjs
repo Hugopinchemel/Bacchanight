@@ -12,14 +12,14 @@ server.on("request", (req, res) => {
         const stylesheet = fs.readFileSync("./reset.css");
         res.end(stylesheet);
     } else if (req.url === "/stylesheet") {
-        const stylesheet = fs.readFileSync("./style.css");
+        const stylesheet = fs.readFileSync("./stylesheet.css");
         res.end(stylesheet);
     } else if (req.url === "/script") {
-        const script = fs.readFileSync("./script.js");
+        const script = fs.readFileSync("./index.js");
         res.end(script);
     } else if (req.url === "/color-palette") {
-        const script = fs.readFileSync("./color-palette.js");
-        res.end(script);
+        const palette = fs.readFileSync("./color-palette.js");
+        res.end(palette);
     } else if (req.url === "/") {
         const index = fs.readFileSync("./index.html");
         res.end(index);

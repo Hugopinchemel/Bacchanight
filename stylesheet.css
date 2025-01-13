@@ -95,3 +95,11 @@ body {
     z-index: 9999;
     pointer-events: none;
 }
+
+.borders{
+    position: absolute;
+    top: 10vw;
+    left: 10vw;
+    z-index: 9998;
+    pointer-events: none;
+}

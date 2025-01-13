@@ -43,7 +43,7 @@ app.get('/color-palette', (req, res) => {
 
 app.get('/', (req, res) => {
     res.setHeader('Content-Type', 'text/html');
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, 'accueil.html'));
 });
 
 // Sauvegarde des données SVG et conversion en PNG

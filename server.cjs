@@ -2,6 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
+const crypto = require('crypto');
+
 
 const app = express();
 const host = process.env.HOST || 'localhost';
@@ -13,9 +15,11 @@ if (!fs.existsSync(savedDir)) {
     console.log(`Dossier 'saved' créé.`);
 }
 
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
 app.use(bodyParser.json());
 
-<<<<<<< Updated upstream
 
 //   _____                _
 //  |  __ \              | |
@@ -25,16 +29,10 @@ app.use(bodyParser.json());
 //  |_|  \_\\___/  \__,_| \__|\___|
 
 
-
-=======
-app.use(bodyParser.json({ limit: '50mb' }));
-app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
-
-// Route to save SVG content
->>>>>>> Stashed changes
 app.post('/save-svg', (req, res) => {
-    const {svgContent} = req.body;
-    const filePath = path.join(savedDir, 'drawing.svg');
+    const { svgContent } = req.body;
+    const randomName = crypto.randomBytes(16).toString('hex');
+    const filePath = path.join(savedDir, `${randomName}.svg`);
     fs.writeFile(filePath, svgContent, (err) => {
         if (err) {
             console.error('Error saving SVG:', err);
@@ -95,11 +93,11 @@ app.get('/random-drawing', (req, res) => {
         if (randomnumber < 0.25) {
             res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
         } else if (randomnumber < 0.50) {
-            res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
+            res.sendFile(path.join(__dirname, 'drawings/tableau-2/tableau-2.html'));
         } else if (randomnumber < 0.75) {
-            res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
+            res.sendFile(path.join(__dirname, 'drawings/tableau-3/tableau-3.html'));
         } else {
-            res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
+            res.sendFile(path.join(__dirname, 'drawings/tableau-4/tableau-4.html'));
         }
     }
 );

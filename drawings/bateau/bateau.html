@@ -11,14 +11,11 @@
 <body>
 
 
-<!-- Background -->
-
-<div class="fractal-background"></div> <!-- Fractal plaid background -->
+<div class="fractal-background"></div>
 
 
 <!-- /Background -->
 <div class="coloring-zones-container" id="capture">
-    test
     <div class="coloring-zone" id="zone1">
         <svg fill="none" height="75vh" viewBox="0 0 1200 927" width="80vw" xmlns="http://www.w3.org/2000/svg">
             <path d="M0.5 629.5V0.5L1199.5 1V654H1046L1049.5 606H1025L968.5 584.5L858 569.5L698.5 572.5L386.5 555L327 524.5V483C320.333 479.333 303.5 471.5 289.5 469.5C275.5 467.5 256.333 479.667 248.5 486L242 530.5L223.5 553L214.5 629L178 654V629.5H0.5Z"
@@ -54,9 +51,10 @@
                   id="path1" style="z-index: max(1, 1);"/>
         </svg>
     </div>
-    <div class="texture-picture" id="picture">
-        <svg fill="none" height="75vh" viewBox="0 0 1200 927" width="80vw" xmlns="http://www.w3.org/2000/svg"
-             xmlns:xlink="http://www.w3.org/1999/xlink">
+
+
+    <div class="texture-picture, coloring-zone" id="picture">
+        <svg fill="none" height="75vh" viewBox="0 0 1200 927" width="80vw" xmlns:xlink="http://www.w3.org/1999/xlink">>
             <rect fill="url(#pattern0_271_32)" fill-opacity="0.75" height="927.273" width="1200"/>
             <defs>
                 <pattern height="1" id="pattern0_271_32" patternContentUnits="objectBoundingBox" width="1">
@@ -81,5 +79,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="/script" type="module"></script>
+<script src="/save" type="module"></script>
 </body>
 </html>

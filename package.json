@@ -1,19 +1,15 @@
 {
-  "name": "bacchanight",
+  "name": "your-project-name",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.cjs",
   "scripts": {
-    "start": "node server.cjs",
-    "go live": "http-server -p 8000"
+    "start": "node server.cjs"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "engines": {
+    "node": "22.x"
+  },
   "dependencies": {
-    "body-parser": "^1.20.3",
-    "express": "^4.21.2",
-    "html2canvas": "^1.4.1",
+    "express": "^4.17.1",
     "sharp": "^0.33.5"
   }
 }

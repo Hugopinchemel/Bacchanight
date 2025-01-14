@@ -1,13 +1,12 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: flex-end;
-    flex-direction: row;
+    flex-direction: column;
     height: 100vh;
     margin: 0;
     border-radius: 12px;
-
 }
 
 .color-picker-container {
@@ -137,4 +136,8 @@ html {
     background-size: 150% 150%, 3em 3em;
     font-size: 100%;
     min-height: 100%;
+}
+
+#result {
+    display: none;
 }

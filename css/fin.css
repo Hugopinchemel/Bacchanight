@@ -1,0 +1,84 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+/* Fractal Plaid Background */
+.fractal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(45deg, #333 25%, transparent 25%) -50px 0/100px 100px,
+    linear-gradient(135deg, #333 25%, transparent 25%) -50px 0/100px 100px,
+    linear-gradient(45deg, transparent 75%, #111 75%) -50px 0/100px 100px,
+    linear-gradient(135deg, transparent 75%, #111 75%) -50px 0/100px 100px;
+    background-color: #222;
+    animation: animatePlaid 5s linear infinite;
+    z-index: -1;
+}
+
+/* Fractal Plaid Animation */
+@keyframes animatePlaid {
+    0% {
+        background-position: 0 0, 0 0, 0 0, 0 0;
+    }
+    100% {
+        background-position: 100px 100px, -100px 100px, 100px -100px, -100px -100px;
+    }
+}
+
+html {
+    background-color: #eefbf8;
+    background-image: radial-gradient(circle, hsla(0, 0%, 100%, .1), hsla(0, 0%, 0%, .75)),
+    linear-gradient(to left, transparent 50%, hsla(0, 0%, 0%, .01) 50%);
+    background-position: 50% 75%, 50% 50%;
+    background-repeat: no-repeat, repeat;
+    background-size: 150% 150%, 3em 3em;
+    font-size: 100%;
+    min-height: 100%;
+}
+/* Conteneur des boutons */
+.buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; /* Espace horizontal entre les boutons */
+    position: fixed;
+    bottom: 1rem; /* Position en bas de l'écran */
+    width: 100%; /* Prend la largeur complète */
+}
+
+/* Styles des boutons */
+.btn-oui, .btn-non {
+    padding: 0.7rem 1.5rem; /* Grand espace pour les doigts */
+    font-size: 1.2rem; /* Taille suffisante pour téléphone */
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-color: #28a745; /* Vert pour Oui */
+    color: white;
+    flex: 1; /* Les boutons s'adaptent en largeur */
+    max-width: 120px; /* Largeur maximale des boutons */
+    text-align: center;
+}
+
+.btn-non {
+    background-color: #dc3545; /* Rouge pour Non */
+}
+
+/* Changement de couleur au survol */
+.btn-oui:hover {
+    background-color: #218838;
+}
+
+.btn-non:hover {
+    background-color: #c82333;
+}

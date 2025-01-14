@@ -54,6 +54,16 @@ app.get('/home', (req, res) => {
     res.sendFile(path.join(__dirname, 'css/home.css'));
 });
 
+app.get('/validation', (req, res) => {
+    res.setHeader('Content-Type', 'text/css');
+    res.sendFile(path.join(__dirname, 'css/validation.css'));
+});
+
+app.get('/fin', (req, res) => {
+    res.setHeader('Content-Type', 'text/css');
+    res.sendFile(path.join(__dirname, 'css/fin.css'));
+});
+
 app.get('/stylesheet', (req, res) => {
     res.setHeader('Content-Type', 'text/css');
     res.sendFile(path.join(__dirname, 'css/stylesheet.css'));

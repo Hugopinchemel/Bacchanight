@@ -22,7 +22,6 @@ document.querySelectorAll('.coloring-zone path').forEach((zone) => {
     });
 });
 
-
 saveButton.addEventListener('click', (event) => {
     document.querySelectorAll('.coloring-zone svg').forEach((svg) => {
         svg.childNodes.forEach((svgChild) => {

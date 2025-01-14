@@ -15,6 +15,7 @@ if (!fs.existsSync(savedDir)) {
 
 app.use(bodyParser.json());
 
+<<<<<<< Updated upstream
 
 //   _____                _
 //  |  __ \              | |
@@ -25,6 +26,12 @@ app.use(bodyParser.json());
 
 
 
+=======
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
+// Route to save SVG content
+>>>>>>> Stashed changes
 app.post('/save-svg', (req, res) => {
     const {svgContent} = req.body;
     const filePath = path.join(savedDir, 'drawing.svg');

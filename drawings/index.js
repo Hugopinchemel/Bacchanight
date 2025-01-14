@@ -1,5 +1,8 @@
 const colorPreview = document.getElementById('colorPreview');
 const colorCode = document.getElementById('colorCode');
+const saveButton = document.getElementById('save-btn');
+const link = document.createElement("a");
+const result = document.getElementById('result');
 let selectedColor = '#ffffff';
 
 colorPalette.addEventListener('click', (event) => {
@@ -19,13 +22,15 @@ document.querySelectorAll('.coloring-zone path').forEach((zone) => {
     });
 });
 
-document.getElementById('save-btn').addEventListener('click', () => {
-    const element = document.getElementById('capture-area');
-    html2canvas(element).then(canvas => {
-        // Convert canvas to a downloadable link
-        const link = document.createElement('a');
-        link.href = canvas.toDataURL('image/png');
-        link.download = 'capture.png';
-        link.click();
-    });
-});
+
+saveButton.addEventListener('click', (event) => {
+    document.querySelectorAll('.coloring-zone svg').forEach((svg) => {
+        svg.childNodes.forEach((svgChild) => {
+            result.appendChild(svgChild.cloneNode(true));
+        })
+    })
+
+    console.log(result.outerHTML);
+
+})
+

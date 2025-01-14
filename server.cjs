@@ -3,12 +3,10 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 
-// Initialisation
 const app = express();
 const host = process.env.HOST || 'localhost';
 const port = process.env.PORT || 8080;
 
-// Création du dossier "saved" s'il n'existe pas
 const savedDir = path.join(__dirname, 'saved');
 if (!fs.existsSync(savedDir)) {
     fs.mkdirSync(savedDir, {recursive: true});
@@ -17,7 +15,16 @@ if (!fs.existsSync(savedDir)) {
 
 app.use(bodyParser.json());
 
-// Route to save SVG content
+
+//   _____                _
+//  |  __ \              | |
+//  | |__) | ___   _   _ | |_  ___
+//  |  _  / / _ \ | | | || __|/ _ \
+//  | | \ \| (_) || |_| || |_|  __/
+//  |_|  \_\\___/  \__,_| \__|\___|
+
+
+
 app.post('/save-svg', (req, res) => {
     const {svgContent} = req.body;
     const filePath = path.join(savedDir, 'drawing.svg');
@@ -30,7 +37,6 @@ app.post('/save-svg', (req, res) => {
     });
 });
 
-// Routes pour servir les fichiers statiques
 app.get('/reset', (req, res) => {
     res.setHeader('Content-Type', 'text/css');
     res.sendFile(path.join(__dirname, 'css/reset.css'));
@@ -86,7 +92,17 @@ app.use((req, res) => {
     res.status(404).send('404 Not Found');
 });
 
-// Lancement du serveur
+
+//    _____                                  _____  _                _    _
+//   / ____|                                / ____|| |              | |  (_)
+//  | (___    ___  _ __ __   __ ___  _ __  | (___  | |_  __ _  _ __ | |_  _  _ __    __ _
+//   \___ \  / _ \| '__|\ \ / // _ \| '__|  \___ \ | __|/ _` || '__|| __|| || '_ \  / _` |
+//   ____) ||  __/| |    \ V /|  __/| |     ____) || |_| (_| || |   | |_ | || | | || (_| |
+//  |_____/  \___||_|     \_/  \___||_|    |_____/  \__|\__,_||_|    \__||_||_| |_| \__, |
+//                                                                                   __/ |
+//                                                                                  |___/
+
+
 app.listen(port, host, () => {
     console.log(`Server running at http://${host}:${port}/`);
 });

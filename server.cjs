@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
-
+const bodyParser = require('body-parser');
 
 // Initialisation
 const app = express();
@@ -14,6 +14,21 @@ if (!fs.existsSync(savedDir)) {
     fs.mkdirSync(savedDir, {recursive: true});
     console.log(`Dossier 'saved' créé.`);
 }
+
+app.use(bodyParser.json());
+
+// Route to save SVG content
+app.post('/save-svg', (req, res) => {
+    const {svgContent} = req.body;
+    const filePath = path.join(savedDir, 'drawing.svg');
+    fs.writeFile(filePath, svgContent, (err) => {
+        if (err) {
+            console.error('Error saving SVG:', err);
+            return res.status(500).send('Error saving SVG');
+        }
+        res.send('SVG saved successfully');
+    });
+});
 
 // Routes pour servir les fichiers statiques
 app.get('/reset', (req, res) => {
@@ -33,12 +48,17 @@ app.get('/stylesheet', (req, res) => {
 
 app.get('/script', (req, res) => {
     res.setHeader('Content-Type', 'application/javascript');
-    res.sendFile(path.join(__dirname, 'drawings/index.js'));
+    res.sendFile(path.join(__dirname, 'drawings/Java-Script/index.js'));
+});
+
+app.get('/save', (req, res) => {
+    res.setHeader('Content-Type', 'application/javascript');
+    res.sendFile(path.join(__dirname, 'drawings/Java-Script/save-drawing.js'));
 });
 
 app.get('/color-palette', (req, res) => {
     res.setHeader('Content-Type', 'application/javascript');
-    res.sendFile(path.join(__dirname, 'drawings/color-palette.js'));
+    res.sendFile(path.join(__dirname, 'drawings/Java-Script/color-palette.js'));
 });
 
 app.get('/', (req, res) => {
@@ -60,30 +80,6 @@ app.get('/random-drawing', (req, res) => {
         }
     }
 );
-
-// Sauvegarde des données SVG et conversion en PNG
-app.post('/save', (req, res) => {
-    const svgData = req.body.svg;
-
-    if (!svgData) {
-        res.status(400).json({message: 'Aucune donnée SVG reçue.'});
-        return;
-    }
-
-    const fileName = `coloring-${Date.now()}.png`;
-    const filePath = path.join(savedDir, fileName);
-
-    sharp(Buffer.from(svgData))
-        .png()
-        .toFile(filePath, (err) => {
-            if (err) {
-                console.error('Erreur lors de la conversion :', err);
-                res.status(500).json({message: 'Erreur lors de la conversion.'});
-            } else {
-                res.json({message: 'Image sauvegardée avec succès !', fileName});
-            }
-        });
-});
 
 // Route 404 par défaut
 app.use((req, res) => {

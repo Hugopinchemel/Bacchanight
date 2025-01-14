@@ -1,5 +1,4 @@
 const colorPalette = document.getElementById('colorPalette');
-const colorPreview = document.getElementById('colorPreview');
 const colorCode = document.getElementById('colorCode');
 let selectedColor = '#ffffff';
 
@@ -24,8 +23,6 @@ colorPalette.addEventListener('click', (event) => {
     document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('selected'));
     swatch.classList.add('selected');
     selectedColor = swatch.getAttribute('data-color');
-    colorPreview.style.backgroundColor = selectedColor;
-    colorCode.textContent = selectedColor;
   }
 });
 

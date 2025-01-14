@@ -5,8 +5,8 @@ const express = require('express');
 
 // Initialisation
 const app = express();
-const host = 'localhost';
-const port = 8080;
+const host = process.env.HOST || 'localhost';
+const port = process.env.PORT || 8080;
 
 // Création du dossier "saved" s'il n'existe pas
 const savedDir = path.join(__dirname, 'saved');

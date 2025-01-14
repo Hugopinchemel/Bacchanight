@@ -26,6 +26,11 @@ app.get('/reset', (req, res) => {
     res.sendFile(path.join(__dirname, 'reset.css'));
 });
 
+app.get('/home.css', (req, res) => {
+    res.setHeader('Content-Type', 'text/css');
+    res.sendFile(path.join(__dirname, 'home.css'));
+});
+
 app.get('/stylesheet', (req, res) => {
     res.setHeader('Content-Type', 'text/css');
     res.sendFile(path.join(__dirname, 'stylesheet.css'));

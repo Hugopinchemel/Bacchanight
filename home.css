@@ -1,4 +1,21 @@
 
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Conteneur principal */
+.container {
+    width: 90%;
+    max-width: 500px; /* Limite la largeur sur les grands écrans */
+    text-align: center;
+}
+
 /* Fractal Plaid Background */
 .fractal-background {
     position: fixed;
@@ -24,6 +41,7 @@
         background-position: 100px 100px, -100px 100px, 100px -100px, -100px -100px;
     }
 }
+
 html {
     background-color: #eefbf8;
     background-image: radial-gradient(circle, hsla(0,0%,100%,.1), hsla(0,0%,0%,.75)),
@@ -33,25 +51,6 @@ html {
     background-size: 150% 150%, 3em 3em;
     font-size: 100%;
     min-height: 100%;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    margin: 0;
-    background-color: #1d1d1d;
-    color: #fff;
-}
-
-/* Conteneur principal */
-.container {
-    width: 90%;
-    max-width: 500px; /* Limite la largeur sur les grands écrans */
-    text-align: center;
 }
 
 /* Logo en haut */
@@ -99,20 +98,6 @@ body {
     transform: scale(0.95);
 }
 
-/* Slider */
-.slider {
-    background-color: #1e1e1e;
-    margin: 20px auto;
-    width: 100%;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.slider img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
 
 /* Pied de page */
 .footer {
@@ -132,25 +117,6 @@ body {
     opacity: 1;
 }
 
-/* Animation pour le bouton principal */
-.animated-button {
-    background: linear-gradient(45deg, #ff6b6b, #f06595);
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 50px;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    outline: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.animated-button:active {
-    transform: scale(0.95);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
 
 /* Media queries pour le design responsive */
 @media (max-width: 768px) {

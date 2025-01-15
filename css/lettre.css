@@ -1,0 +1,27 @@
+.btn-continuer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #000000; /* Couleur du bouton */
+    color: #fff; /* Couleur du texte */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.btn-continuer:hover {
+    background-color: #000000; /* Couleur au survol */
+}
+
+body {
+    background-image: url("/fondlettre");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+

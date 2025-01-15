@@ -15,7 +15,7 @@ const app = express();
 //  |_| | | \ \| |____| |  | | |__| | \  /  | |____  | |_) | |____| |   | |__| | | \ \| |____  | |__| |____) | |____  |_|
 //  (_) |_|  \_\______|_|  |_|\____/   \/   |______| |____/|______|_|    \____/|_|  \_\______|  \____/|_____/|______| (_)
 //
-//const host = process.env.HOST || 'localhost';
+const host = process.env.HOST || 'localhost';
 
 
 const port = process.env.PORT || 8080;
@@ -95,11 +95,7 @@ app.get('/stylesheet', (req, res) => {
   console.log('User requested stylesheet.css');
 });
 
-app.get('/credits-css', (req, res) => {
-    res.setHeader('Content-Type', 'text/css');
-    res.sendFile(path.join(__dirname, 'css/credits.css'));
-    console.log('User requested credits.css');
-});
+
 
 
 //   _____      _       _   _
@@ -178,6 +174,12 @@ app.get('/credits', (req, res) => {
     console.log('User requested credits.html');
 });
 
+app.get('/credits-css', (req, res) => {
+    res.setHeader('Content-Type', 'text/css');
+    res.sendFile(path.join(__dirname, 'css/credits.css'));
+    console.log('User requested credits.css');
+});
+
 app.get('/mmi-logo', (req, res) => {
     res.setHeader('Content-Type', 'image/png');
     res.sendFile(path.join(__dirname, 'img/mmi-logo.png'));
@@ -195,7 +197,31 @@ app.get('/logo', (req, res) => {
     res.sendFile(path.join(__dirname, 'img/logo.png'));
     console.log('User requested logo.png');
 });
+//  _          _   _
+//  | |        | | | |
+//  | |     ___| |_| |_ _ __ ___
+//  | |    / _ \ __| __| '__/ _ \
+//  | |___|  __/ |_| |_| | |  __/
+//  |______\___|\__|\__|_|  \___|
+//
+//
 
+app.get('/lettre', (req, res) => {
+    res.setHeader('Content-Type', 'text/html');
+    res.sendFile(path.join(__dirname, 'lettre.html'));
+    console.log('User requested lettre.html');
+});
+
+app.get('/lettre-css', (req, res) => {
+    res.setHeader('Content-Type', 'text/css');
+    res.sendFile(path.join(__dirname, 'css/lettre.css'));
+    console.log('User requested lettre.css');
+});
+app.get('/fondlettre', (req, res) => {
+    res.setHeader('Content-Type', 'image/png');
+    res.sendFile(path.join(__dirname, 'img/fondlettre.png'));
+    console.log('User requested fondlettre.png');
+});
 //    _____       _ _
 //   / ____|     | | |
 //  | |  __  __ _| | | ___ _ __ _   _
@@ -281,9 +307,9 @@ app.use((req, res) => {
 //                                                                                  |___/
 
 
-// app.listen(port, host, () => {
-//   console.log(`Server running at http://${host}:${port}/`);
-// });
+ app.listen(port, host, () => {
+   console.log(`Server running at http://${host}:${port}/`);
+ });
 
 
 //   _    _____         _ _       _       _                 _                    _ _     _              _     _

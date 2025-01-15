@@ -6,8 +6,8 @@ const crypto = require('crypto');
 
 
 const app = express();
-const host = process.env.HOST || 'localhost';
-const port = process.env.PUBLICPORT || 8080;
+//const host = process.env.HOST || 'localhost';
+const port = process.env.PORT || 8080;
 
 const savedDir = path.join(__dirname, 'saved');
 if (!fs.existsSync(savedDir)) {
@@ -204,6 +204,8 @@ app.use((req, res) => {
 //                                                                                  |___/
 
 
-app.listen(port, host, () => {
-    console.log(`Server running at http://${host}:${port}/`);
-});
+var server = app.listen(port, function () {
+  var host = server.address().address
+  var port = server.address().port
+  console.log('App listening at https://%s:%s', host, port)
+})

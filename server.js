@@ -163,7 +163,7 @@ app.get('/color-palette', (req, res) => {
 });
 
 
-//   _____              _ _ _
+//    _____              _ _ _
 //   / ____|            | (_) |
 //  | |     _ __ ___  __| |_| |_ ___
 //  | |    | '__/ _ \/ _` | | __/ __|
@@ -220,6 +220,7 @@ app.get('/gallery', (req, res) => {
 
     // Build the HTML with SVG <img> tags
     let galleryHTML = `
+<html lang="en" style="background-color: #121212; color: #ffffff;">
       <head>
         <meta charset="UTF-8">
         <title>Galerie</title>l

@@ -73,10 +73,10 @@ app.get('/', (req, res) => {
     console.log('User requested index.html');
 });
 
-app.get('/home', (req, res) => {
+app.get('/index-css', (req, res) => {
     res.setHeader('Content-Type', 'text/css');
-    res.sendFile(path.join(__dirname, 'css/home.css'));
-    console.log('User requested home.css');
+    res.sendFile(path.join(__dirname, 'css/index.css'));
+    console.log('User requested index.css');
 });
 
 app.get('/validation', (req, res) => {

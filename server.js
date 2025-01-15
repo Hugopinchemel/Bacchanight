@@ -15,7 +15,7 @@ const app = express();
 //  |_| | | \ \| |____| |  | | |__| | \  /  | |____  | |_) | |____| |   | |__| | | \ \| |____  | |__| |____) | |____  |_|
 //  (_) |_|  \_\______|_|  |_|\____/   \/   |______| |____/|______|_|    \____/|_|  \_\______|  \____/|_____/|______| (_)
 //
-//const host = process.env.HOST || 'localhost';
+// const host = process.env.HOST || 'localhost';
 
 
 const port = process.env.PORT || 8080;
@@ -144,8 +144,7 @@ app.post('/save-svg', (req, res) => {
       return res.status(500).send('Error saving SVG');
     }
     res.send('SVG saved successfully');
-    console.log(`User saved a SVG file: ${filePath}`);
-    notifyClients(); // Notify clients about the new file
+    console.log(`User saved a svg file: ${filePath}`);
   });
 });
 

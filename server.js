@@ -79,16 +79,10 @@ app.get('/index-css', (req, res) => {
     console.log('User requested index.css');
 });
 
-app.get('/validation', (req, res) => {
-    res.setHeader('Content-Type', 'text/css');
-    res.sendFile(path.join(__dirname, 'css/validation.css'));
-    console.log('User requested validation.css');
-});
-
-app.get('/fin', (req, res) => {
-    res.setHeader('Content-Type', 'text/css');
-    res.sendFile(path.join(__dirname, 'css/fin.css'));
-    console.log('User requested fin.css');
+app.get('/background', (req, res) => {
+    res.setHeader('Content-Type', 'image/png');
+    res.sendFile(path.join(__dirname, 'img/abstractBackground.png'));
+    console.log('User requested abstractBackground.png');
 });
 
 app.get('/stylesheet', (req, res) => {
@@ -158,11 +152,7 @@ app.get('/color-palette', (req, res) => {
     console.log('User requested color-palette.js');
 });
 
-app.get('/background', (req, res) => {
-    res.setHeader('Content-Type', 'image/png');
-    res.sendFile(path.join(__dirname, 'img/abstractBackground.png'));
-    console.log('User requested abstractBackground.png');
-});
+
 
 
 //    _____       _ _

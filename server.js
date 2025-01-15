@@ -6,7 +6,20 @@ const crypto = require('crypto');
 
 
 const app = express();
-//const host = process.env.HOST || 'localhost';
+
+
+//   _   _____  ______ __  __  ______      ________   ____  ______ ______ ____  _____  ______   _    _  _____ ______   _
+//  | | |  __ \|  ____|  \/  |/ __ \ \    / /  ____| |  _ \|  ____|  ____/ __ \|  __ \|  ____| | |  | |/ ____|  ____| | |
+//  | | | |__) | |__  | \  / | |  | \ \  / /| |__    | |_) | |__  | |__ | |  | | |__) | |__    | |  | | (___ | |__    | |
+//  | | |  _  /|  __| | |\/| | |  | |\ \/ / |  __|   |  _ <|  __| |  __|| |  | |  _  /|  __|   | |  | |\___ \|  __|   | |
+//  |_| | | \ \| |____| |  | | |__| | \  /  | |____  | |_) | |____| |   | |__| | | \ \| |____  | |__| |____) | |____  |_|
+//  (_) |_|  \_\______|_|  |_|\____/   \/   |______| |____/|______|_|    \____/|_|  \_\______|  \____/|_____/|______| (_)
+//
+const host = process.env.HOST || 'localhost';
+
+
+
+
 const port = process.env.PORT || 8080;
 
 const savedDir = path.join(__dirname, 'saved');
@@ -29,7 +42,7 @@ app.use(bodyParser.json());
 //  |_|  \_\\___/  \__,_| \__|\___|
 
 
-//   _____  _____ _____
+//    _____  _____ _____
 //   / ____|/ ____/ ____|
 //  | |    | (___| (___
 //  | |     \___ \\___ \
@@ -46,7 +59,7 @@ app.get('/reset', (req, res) => {
 });
 
 
-//  _____           _
+//   _____           _
 //  |_   _|         | |
 //    | |  _ __   __| | _____  __
 //    | | | '_ \ / _` |/ _ \ \/ /
@@ -85,7 +98,7 @@ app.get('/stylesheet', (req, res) => {
 });
 
 
-//  _____      _       _   _
+//   _____      _       _   _
 //  |  __ \    (_)     | | (_)
 //  | |__) |_ _ _ _ __ | |_ _ _ __   __ _ ___
 //  |  ___/ _` | | '_ \| __| | '_ \ / _` / __|
@@ -152,7 +165,7 @@ app.get('/background', (req, res) => {
 });
 
 
-//   _____       _ _
+//    _____       _ _
 //   / ____|     | | |
 //  | |  __  __ _| | | ___ _ __ _   _
 //  | | |_ |/ _` | | |/ _ \ '__| | | |
@@ -162,21 +175,21 @@ app.get('/background', (req, res) => {
 //                              |___/
 
 
-app.get('/galery', (req, res) => {
+app.get('/gallery', (req, res) => {
     res.setHeader('Content-Type', 'text/html');
-    res.sendFile(path.join(__dirname, 'galery/gallery.html'));
+    res.sendFile(path.join(__dirname, 'gallery/gallery.html'));
     console.log('User requested gallery.html');
 });
 
-app.get('/galery-css', (req, res) => {
+app.get('/gallery-css', (req, res) => {
     res.setHeader('Content-Type', 'text/html');
-    res.sendFile(path.join(__dirname, 'css/galery-css.css'));
+    res.sendFile(path.join(__dirname, 'gallery/gallery.css'));
     console.log('User requested gallery.css');
 });
 
-app.get('/galery-js', (req, res) => {
+app.get('/gallery-js', (req, res) => {
     res.setHeader('Content-Type', 'text/html');
-    res.sendFile(path.join(__dirname, 'script/galery-js.js'));
+    res.sendFile(path.join(__dirname, 'gallery/gallery.js'));
     console.log('User requested gallery.js');
 });
 
@@ -202,6 +215,21 @@ app.use((req, res) => {
 //  |_____/  \___||_|     \_/  \___||_|    |_____/  \__|\__,_||_|    \__||_||_| |_| \__, |
 //                                                                                   __/ |
 //                                                                                  |___/
+
+
+app.listen(port, host, () => {
+  console.log(`Server running at http://${host}:${port}/`);
+});
+
+
+//   _    _____         _ _       _       _                 _                    _ _     _              _     _
+//  | |  / ____|       (_) |     | |     | |               | |                  | (_)   | |            | |   | |
+//  | | | (_____      ___| |_ ___| |__   | | ___   ___ __ _| |   ___  _ __    __| |_ ___| |_ __ _ _ __ | |_  | |
+//  | |  \___ \ \ /\ / / | __/ __| '_ \  | |/ _ \ / __/ _` | |  / _ \| '__|  / _` | / __| __/ _` | '_ \| __| | |
+//  |_|  ____) \ V  V /| | || (__| | | | | | (_) | (_| (_| | | | (_) | |    | (_| | \__ \ || (_| | | | | |_  |_|
+//  (_) |_____/ \_/\_/ |_|\__\___|_| |_| |_|\___/ \___\__,_|_|  \___/|_|     \__,_|_|___/\__\__,_|_| |_|\__| (_)
+//
+//
 
 
 var server = app.listen(port, function () {

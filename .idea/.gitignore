@@ -38,7 +38,7 @@ Thumbs.db
 
 # Saved files or local files
 /saved/
-localserver.js
+
 
 # Optional: Coverage directory used by testing tools
 coverage/

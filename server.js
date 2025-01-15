@@ -29,23 +29,35 @@ app.use(bodyParser.json());
 //  |_|  \_\\___/  \__,_| \__|\___|
 
 
-app.post('/save-svg', (req, res) => {
-    const {svgContent} = req.body;
-    const randomName = crypto.randomBytes(16).toString('hex');
-    const filePath = path.join(savedDir, `${randomName}.svg`);
-    fs.writeFile(filePath, svgContent, (err) => {
-        if (err) {
-            console.error('Error saving SVG:', err);
-            return res.status(500).send('Error saving SVG');
-        }
-        res.send('SVG saved successfully');
-    });
-});
+//   _____  _____ _____
+//   / ____|/ ____/ ____|
+//  | |    | (___| (___
+//  | |     \___ \\___ \
+//  | |____ ____) |___) |
+//   \_____|_____/_____/
+//
+//
+
 
 app.get('/reset', (req, res) => {
     res.setHeader('Content-Type', 'text/css');
     res.sendFile(path.join(__dirname, 'css/reset.css'));
     console.log('User requested reset.css');
+});
+
+
+//  _____           _
+//  |_   _|         | |
+//    | |  _ __   __| | _____  __
+//    | | | '_ \ / _` |/ _ \ \/ /
+//   _| |_| | | | (_| |  __/>  <
+//  |_____|_| |_|\__,_|\___/_/\_\
+
+
+app.get('/', (req, res) => {
+    res.setHeader('Content-Type', 'text/html');
+    res.sendFile(path.join(__dirname, 'index.html'));
+    console.log('User requested index.html');
 });
 
 app.get('/home', (req, res) => {
@@ -72,35 +84,16 @@ app.get('/stylesheet', (req, res) => {
     console.log('User requested stylesheet.css');
 });
 
-app.get('/script', (req, res) => {
-    res.setHeader('Content-Type', 'application/javascript');
-    res.sendFile(path.join(__dirname, 'drawings/Java-Script/index.js'));
-    console.log('User requested index.js');
-});
 
-app.get('/save', (req, res) => {
-    res.setHeader('Content-Type', 'application/javascript');
-    res.sendFile(path.join(__dirname, 'drawings/Java-Script/save-drawing.js'));
-    console.log('User requested save-drawing.js');
-});
+//  _____      _       _   _
+//  |  __ \    (_)     | | (_)
+//  | |__) |_ _ _ _ __ | |_ _ _ __   __ _ ___
+//  |  ___/ _` | | '_ \| __| | '_ \ / _` / __|
+//  | |  | (_| | | | | | |_| | | | | (_| \__ \
+//  |_|   \__,_|_|_| |_|\__|_|_| |_|\__, |___/
+//                                   __/ |
+//                                  |___/
 
-app.get('/color-palette', (req, res) => {
-    res.setHeader('Content-Type', 'application/javascript');
-    res.sendFile(path.join(__dirname, 'drawings/Java-Script/color-palette.js'));
-    console.log('User requested color-palette.js');
-});
-
-app.get('/', (req, res) => {
-    res.setHeader('Content-Type', 'text/html');
-    res.sendFile(path.join(__dirname, 'index.html'));
-    console.log('User requested index.html');
-});
-
-app.get('/background', (req, res) => {
-    res.setHeader('Content-Type', 'image/png');
-    res.sendFile(path.join(__dirname, 'img/abstractBackground.png'));
-    console.log('User requested abstractBackground.png');
-});
 
 app.get('/random-drawing', (req, res) => {
     res.setHeader('Content-Type', 'text/html');
@@ -116,7 +109,86 @@ app.get('/random-drawing', (req, res) => {
     }
 });
 
-// Route 404 par défaut
+//route for index.js
+app.get('/script', (req, res) => {
+    res.setHeader('Content-Type', 'application/javascript');
+    res.sendFile(path.join(__dirname, 'drawings/Java-Script/index.js'));
+    console.log('User requested index.js');
+});
+
+//saving function
+app.post('/save-svg', (req, res) => {
+    const {svgContent} = req.body;
+    const randomName = crypto.randomBytes(16).toString('hex');
+    const filePath = path.join(savedDir, `${randomName}.svg`);
+    fs.writeFile(filePath, svgContent, (err) => {
+        if (err) {
+            console.error('Error saving SVG:', err);
+            return res.status(500).send('Error saving SVG');
+        }
+        res.send('SVG saved successfully');
+        console.log(`User saved a svg file: ${filePath}`);
+    });
+});
+
+//route for color-palette.js
+app.get('/save', (req, res) => {
+    res.setHeader('Content-Type', 'application/javascript');
+    res.sendFile(path.join(__dirname, 'drawings/Java-Script/save-drawing.js'));
+    console.log('User requested save-drawing.js');
+});
+
+//route for color-palette.js
+app.get('/color-palette', (req, res) => {
+    res.setHeader('Content-Type', 'application/javascript');
+    res.sendFile(path.join(__dirname, 'drawings/Java-Script/color-palette.js'));
+    console.log('User requested color-palette.js');
+});
+
+app.get('/background', (req, res) => {
+    res.setHeader('Content-Type', 'image/png');
+    res.sendFile(path.join(__dirname, 'img/abstractBackground.png'));
+    console.log('User requested abstractBackground.png');
+});
+
+
+//   _____       _ _
+//   / ____|     | | |
+//  | |  __  __ _| | | ___ _ __ _   _
+//  | | |_ |/ _` | | |/ _ \ '__| | | |
+//  | |__| | (_| | | |  __/ |  | |_| |
+//   \_____|\__,_|_|_|\___|_|   \__, |
+//                               __/ |
+//                              |___/
+
+
+app.get('/galery', (req, res) => {
+    res.setHeader('Content-Type', 'text/html');
+    res.sendFile(path.join(__dirname, 'galery/gallery.html'));
+    console.log('User requested gallery.html');
+});
+
+app.get('/galery-css', (req, res) => {
+    res.setHeader('Content-Type', 'text/html');
+    res.sendFile(path.join(__dirname, 'css/galery-css.css'));
+    console.log('User requested gallery.css');
+});
+
+app.get('/galery-js', (req, res) => {
+    res.setHeader('Content-Type', 'text/html');
+    res.sendFile(path.join(__dirname, 'script/galery-js.js'));
+    console.log('User requested gallery.js');
+});
+
+
+//  _  _    ___  _  _     ______
+//  | || |  / _ \| || |   |  ____|
+//  | || |_| | | | || |_  | |__   _ __ _ __ ___  _ __
+//  |__   _| | | |__   _| |  __| | '__| '__/ _ \| '__|
+//     | | | |_| |  | |   | |____| |  | | | (_) | |
+//     |_|  \___/   |_|   |______|_|  |_|  \___/|_|
+
+
 app.use((req, res) => {
     res.status(404).send('404 Not Found');
 });

@@ -25,7 +25,7 @@ body, h1, h2, ul, li, a {
 /* Rendre tout le texte très grand, blanc et en gras */
 h1, h2, ul, li, a, p {
     font-weight: bold; /* En gras */
-    color: #FFFFFF;    /* Texte en blanc */
+    color: #FFFFFF; /* Texte en blanc */
 }
 
 /* Header */
@@ -44,7 +44,7 @@ header {
 
 /* Plus grande taille par défaut */
 h1 {
-    font-size: 48px;  /* Grossir encore plus pour les titres */
+    font-size: 48px; /* Grossir encore plus pour les titres */
     margin-bottom: 20px;
 }
 
@@ -81,6 +81,7 @@ h2 {
         padding: 10px; /* Ajout d'un espacement pour éviter tout débordement */
     }
 }
+
 /* Team List */
 .team-list {
     list-style: none;

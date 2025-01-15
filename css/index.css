@@ -26,6 +26,7 @@ body {
     justify-content: center; /* Centre le contenu de manière verticale */
     align-items: center;
 }
+
 /* Logo en haut */
 .logo {
     margin-top: 20px; /* Espace en haut */
@@ -34,8 +35,6 @@ body {
     max-width: 300px; /* Taille maximale pour éviter qu'il devienne trop grand */
     height: auto; /* Préserve les proportions */
 }
-
-
 
 
 /* Container des boutons centraux */
@@ -80,6 +79,7 @@ body {
     width: 100%; /* Largeur du footer */
     padding: 10px 0; /* Espace intérieur du footer */
 }
+
 /* Ajustement des logos du footer */
 .footer-logo {
     width: 15%; /* Taille proportionnelle */
@@ -87,7 +87,6 @@ body {
     height: auto; /* Préserve les proportions */
     margin: 0 10px; /* Espacement horizontal entre les logos */
 }
-
 
 
 /* Responsive : Téléphones et petits écrans */

@@ -48,10 +48,10 @@ app.get('/reset', (req, res) => {
     console.log('User requested reset.css');
 });
 
-app.get('/home', (req, res) => {
+app.get('/index', (req, res) => {
     res.setHeader('Content-Type', 'text/css');
-    res.sendFile(path.join(__dirname, 'css/home.css'));
-    console.log('User requested home.css');
+    res.sendFile(path.join(__dirname, 'css/index.css'));
+    console.log('User requested index.css');
 });
 
 app.get('/validation', (req, res) => {
@@ -96,11 +96,12 @@ app.get('/', (req, res) => {
     console.log('User requested index.html');
 });
 
-app.get('/background', (req, res) => {
+app.get('/background-index', (req, res) => {
     res.setHeader('Content-Type', 'image/png');
     res.sendFile(path.join(__dirname, 'img/abstractBackground.png'));
     console.log('User requested abstractBackground.png');
 });
+
 
 app.get('/random-drawing', (req, res) => {
     res.setHeader('Content-Type', 'text/html');

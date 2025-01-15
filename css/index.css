@@ -7,7 +7,7 @@ body {
     flex-direction: column;
     height: 100vh;
     margin: 0;
-    background-image: url(" /background");
+    background-image: url("/background-index");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -15,11 +15,6 @@ body {
 
 }
 
-.background-container {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
 
 /* Conteneur principal */
 .container {
@@ -74,14 +69,6 @@ body {
     font-size: 20px; /* Texte plus grand */
     font-weight: bold; /* Texte en gras */
     width: 100%; /* Rendre le bouton large */
-}
-
-.btn {
-    width: 100%;
-    padding: 15px 0;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
 }
 
 

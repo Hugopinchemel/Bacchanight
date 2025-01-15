@@ -85,10 +85,22 @@ app.get('/background', (req, res) => {
     console.log('User requested abstractBackground.png');
 });
 
+app.get('/background-credits', (req, res) => {
+    res.setHeader('Content-Type', 'image/png');
+    res.sendFile(path.join(__dirname, 'img/creditsBackground.png'));
+    console.log('User requested abstractBackground.png');
+});
+
 app.get('/stylesheet', (req, res) => {
     res.setHeader('Content-Type', 'text/css');
     res.sendFile(path.join(__dirname, 'css/stylesheet.css'));
     console.log('User requested stylesheet.css');
+});
+
+app.get('/credits-css', (req, res) => {
+    res.setHeader('Content-Type', 'text/css');
+    res.sendFile(path.join(__dirname, 'css/credits.css'));
+    console.log('User requested credits.css');
 });
 
 
@@ -153,7 +165,37 @@ app.get('/color-palette', (req, res) => {
 });
 
 
+//   _____              _ _ _
+//   / ____|            | (_) |
+//  | |     _ __ ___  __| |_| |_ ___
+//  | |    | '__/ _ \/ _` | | __/ __|
+//  | |____| | |  __/ (_| | | |_\__ \
+//   \_____|_|  \___|\__,_|_|\__|___/
+//
+//
+app.get('/credits', (req, res) => {
+    res.setHeader('Content-Type', 'text/html');
+    res.sendFile(path.join(__dirname, 'credits.html'));
+    console.log('User requested credits.html');
+});
 
+app.get('/mmi-logo', (req, res) => {
+    res.setHeader('Content-Type', 'image/png');
+    res.sendFile(path.join(__dirname, 'img/mmi-logo.png'));
+    console.log('User requested mmi-logo.png');
+});
+
+app.get('/musba-logo', (req, res) => {
+    res.setHeader('Content-Type', 'image/png');
+    res.sendFile(path.join(__dirname, 'img/musba-logo.png'));
+    console.log('User requested musba-logo.png');
+});
+
+app.get('/logo', (req, res) => {
+    res.setHeader('Content-Type', 'image/png');
+    res.sendFile(path.join(__dirname, 'img/logo.png'));
+    console.log('User requested logo.png');
+});
 
 //    _____       _ _
 //   / ____|     | | |

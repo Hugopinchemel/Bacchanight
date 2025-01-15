@@ -2,7 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
     height: 100vh;
@@ -16,27 +16,27 @@ body {
 }
 
 
-/* Conteneur principal */
 .container {
     width: 90%;
-    max-width: 500px; /* Limite la largeur sur les grands écrans */
+    max-width: 500px;
     text-align: center;
+    flex: 1; /* Permet au conteneur principal de s’adapter au milieu de l’écran */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centre le contenu de manière verticale */
+    align-items: center;
 }
-
 /* Logo en haut */
-.logo h1 {
-    font-size: 28px;
-    line-height: 1.4;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
+.logo {
+    margin-top: 20px; /* Espace en haut */
+    text-align: center; /* Centre le logo */
+    width: 80%; /* Largeur adaptative : 50% de la largeur du conteneur */
+    max-width: 300px; /* Taille maximale pour éviter qu'il devienne trop grand */
+    height: auto; /* Préserve les proportions */
 }
 
-.logo .highlight {
-    font-size: 36px;
-    color: #d1d1d1;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-}
+
+
 
 /* Container des boutons centraux */
 .buttons {
@@ -75,57 +75,40 @@ body {
 /* Pied de page */
 .footer {
     display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
-    margin-top: auto;
+    justify-content: center; /* Centre les logos horizontalement */
+    gap: 200px; /* Espacement entre les logos */
+    width: 100%; /* Largeur du footer */
+    padding: 10px 0; /* Espace intérieur du footer */
 }
-
+/* Ajustement des logos du footer */
 .footer-logo {
-    max-width: 70px;
-    opacity: 0.8;
-    transition: opacity 0.3s;
-}
-
-.footer-logo:hover {
-    opacity: 1;
+    width: 15%; /* Taille proportionnelle */
+    max-width: 100px; /* Taille maximale pour éviter qu'il devienne trop grand */
+    height: auto; /* Préserve les proportions */
+    margin: 0 10px; /* Espacement horizontal entre les logos */
 }
 
 
-/* Media queries pour le design responsive */
+
+/* Responsive : Téléphones et petits écrans */
 @media (max-width: 768px) {
-    .logo h1 {
-        font-size: 24px;
-    }
-
-    .logo .highlight {
-        font-size: 32px;
-    }
-
-    .btn {
-        font-size: 16px;
-        padding: 12px 0;
+    .logo img {
+        width: 70%; /* Plus grand logo sur petits écrans */
     }
 
     .footer-logo {
-        max-width: 60px;
+        width: 20%; /* Taille augmentée pour les logos du footer */
+        max-width: 80px;
     }
 }
 
 @media (max-width: 480px) {
-    .logo h1 {
-        font-size: 20px;
-    }
-
-    .logo .highlight {
-        font-size: 28px;
-    }
-
-    .btn {
-        font-size: 14px;
-        padding: 10px 0;
+    .logo img {
+        width: 90%; /* Presque toute la largeur disponible */
     }
 
     .footer-logo {
-        max-width: 50px;
+        width: 25%; /* Taille encore plus grande pour les très petits écrans */
+        max-width: 70px;
     }
 }

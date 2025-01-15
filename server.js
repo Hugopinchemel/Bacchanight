@@ -7,7 +7,7 @@ const crypto = require('crypto');
 
 const app = express();
 const host = process.env.HOST || 'localhost';
-const port = process.env.PORT || 8080;
+const port = process.env.PUBLICPORT || 8080;
 
 const savedDir = path.join(__dirname, 'saved');
 if (!fs.existsSync(savedDir)) {

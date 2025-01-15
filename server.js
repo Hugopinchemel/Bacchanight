@@ -3,6 +3,8 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const crypto = require('crypto');
+const WebSocket = require('ws');
+const painting = fs.readFileSync
 
 
 const app = express();
@@ -18,14 +20,12 @@ const app = express();
 const host = process.env.HOST || 'localhost';
 
 
-
-
 const port = process.env.PORT || 8080;
 
 const savedDir = path.join(__dirname, 'saved');
 if (!fs.existsSync(savedDir)) {
-    fs.mkdirSync(savedDir, {recursive: true});
-    console.log(`Dossier 'saved' créé.`);
+  fs.mkdirSync(savedDir, {recursive: true});
+  console.log(`Dossier 'saved' créé.`);
 }
 
 app.use(bodyParser.json({limit: '50mb'}));
@@ -53,9 +53,9 @@ app.use(bodyParser.json());
 
 
 app.get('/reset', (req, res) => {
-    res.setHeader('Content-Type', 'text/css');
-    res.sendFile(path.join(__dirname, 'css/reset.css'));
-    console.log('User requested reset.css');
+  res.setHeader('Content-Type', 'text/css');
+  res.sendFile(path.join(__dirname, 'css/reset.css'));
+  console.log('User requested reset.css');
 });
 
 
@@ -68,33 +68,33 @@ app.get('/reset', (req, res) => {
 
 
 app.get('/', (req, res) => {
-    res.setHeader('Content-Type', 'text/html');
-    res.sendFile(path.join(__dirname, 'index.html'));
-    console.log('User requested index.html');
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'index.html'));
+  console.log('User requested index.html');
 });
 
 app.get('/index-css', (req, res) => {
-    res.setHeader('Content-Type', 'text/css');
-    res.sendFile(path.join(__dirname, 'css/index.css'));
-    console.log('User requested index.css');
+  res.setHeader('Content-Type', 'text/css');
+  res.sendFile(path.join(__dirname, 'css/index.css'));
+  console.log('User requested index.css');
 });
 
 app.get('/validation', (req, res) => {
-    res.setHeader('Content-Type', 'text/css');
-    res.sendFile(path.join(__dirname, 'css/validation.css'));
-    console.log('User requested validation.css');
+  res.setHeader('Content-Type', 'text/css');
+  res.sendFile(path.join(__dirname, 'css/validation.css'));
+  console.log('User requested validation.css');
 });
 
 app.get('/fin', (req, res) => {
-    res.setHeader('Content-Type', 'text/css');
-    res.sendFile(path.join(__dirname, 'css/fin.css'));
-    console.log('User requested fin.css');
+  res.setHeader('Content-Type', 'text/css');
+  res.sendFile(path.join(__dirname, 'css/fin.css'));
+  console.log('User requested fin.css');
 });
 
 app.get('/stylesheet', (req, res) => {
-    res.setHeader('Content-Type', 'text/css');
-    res.sendFile(path.join(__dirname, 'css/stylesheet.css'));
-    console.log('User requested stylesheet.css');
+  res.setHeader('Content-Type', 'text/css');
+  res.sendFile(path.join(__dirname, 'css/stylesheet.css'));
+  console.log('User requested stylesheet.css');
 });
 
 
@@ -109,59 +109,60 @@ app.get('/stylesheet', (req, res) => {
 
 
 app.get('/random-drawing', (req, res) => {
-    res.setHeader('Content-Type', 'text/html');
-    var randomnumber = Math.random();
-    if (randomnumber < 0.25) {
-        res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
-    } else if (randomnumber < 0.50) {
-        res.sendFile(path.join(__dirname, 'drawings/tableau-2/tableau-2.html'));
-    } else if (randomnumber < 0.75) {
-        res.sendFile(path.join(__dirname, 'drawings/tableau-3/tableau-3.html'));
-    } else {
-        res.sendFile(path.join(__dirname, 'drawings/tableau-4/tableau-4.html'));
-    }
+  res.setHeader('Content-Type', 'text/html');
+  var randomnumber = Math.random();
+  if (randomnumber < 0.25) {
+    res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
+  } else if (randomnumber < 0.50) {
+    res.sendFile(path.join(__dirname, 'drawings/tableau-2/tableau-2.html'));
+  } else if (randomnumber < 0.75) {
+    res.sendFile(path.join(__dirname, 'drawings/tableau-3/tableau-3.html'));
+  } else {
+    res.sendFile(path.join(__dirname, 'drawings/tableau-4/tableau-4.html'));
+  }
 });
 
 //route for index.js
 app.get('/script', (req, res) => {
-    res.setHeader('Content-Type', 'application/javascript');
-    res.sendFile(path.join(__dirname, 'drawings/Java-Script/index.js'));
-    console.log('User requested index.js');
+  res.setHeader('Content-Type', 'application/javascript');
+  res.sendFile(path.join(__dirname, 'drawings/Java-Script/index.js'));
+  console.log('User requested index.js');
 });
 
 //saving function
 app.post('/save-svg', (req, res) => {
-    const {svgContent} = req.body;
-    const randomName = crypto.randomBytes(16).toString('hex');
-    const filePath = path.join(savedDir, `${randomName}.svg`);
-    fs.writeFile(filePath, svgContent, (err) => {
-        if (err) {
-            console.error('Error saving SVG:', err);
-            return res.status(500).send('Error saving SVG');
-        }
-        res.send('SVG saved successfully');
-        console.log(`User saved a svg file: ${filePath}`);
-    });
+  const { svgContent } = req.body;
+  const randomName = crypto.randomBytes(16).toString('hex');
+  const filePath = path.join(savedDir, `${randomName}.svg`);
+  fs.writeFile(filePath, svgContent, (err) => {
+    if (err) {
+      console.error('Error saving SVG:', err);
+      return res.status(500).send('Error saving SVG');
+    }
+    res.send('SVG saved successfully');
+    console.log(`User saved a SVG file: ${filePath}`);
+    notifyClients(); // Notify clients about the new file
+  });
 });
 
 //route for color-palette.js
 app.get('/save', (req, res) => {
-    res.setHeader('Content-Type', 'application/javascript');
-    res.sendFile(path.join(__dirname, 'drawings/Java-Script/save-drawing.js'));
-    console.log('User requested save-drawing.js');
+  res.setHeader('Content-Type', 'application/javascript');
+  res.sendFile(path.join(__dirname, 'drawings/Java-Script/save-drawing.js'));
+  console.log('User requested save-drawing.js');
 });
 
 //route for color-palette.js
 app.get('/color-palette', (req, res) => {
-    res.setHeader('Content-Type', 'application/javascript');
-    res.sendFile(path.join(__dirname, 'drawings/Java-Script/color-palette.js'));
-    console.log('User requested color-palette.js');
+  res.setHeader('Content-Type', 'application/javascript');
+  res.sendFile(path.join(__dirname, 'drawings/Java-Script/color-palette.js'));
+  console.log('User requested color-palette.js');
 });
 
 app.get('/background', (req, res) => {
-    res.setHeader('Content-Type', 'image/png');
-    res.sendFile(path.join(__dirname, 'img/abstractBackground.png'));
-    console.log('User requested abstractBackground.png');
+  res.setHeader('Content-Type', 'image/png');
+  res.sendFile(path.join(__dirname, 'img/abstractBackground.png'));
+  console.log('User requested abstractBackground.png');
 });
 
 
@@ -176,21 +177,54 @@ app.get('/background', (req, res) => {
 
 
 app.get('/gallery', (req, res) => {
-    res.setHeader('Content-Type', 'text/html');
-    res.sendFile(path.join(__dirname, 'gallery/gallery.html'));
-    console.log('User requested gallery.html');
+  const savedDir = path.join(__dirname, 'saved');
+
+  fs.readdir(savedDir, (err, files) => {
+    if (err) {
+      console.error('Error reading directory:', err);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+
+    // Filter for SVG files
+    const svgFiles = files.filter(file => file.endsWith('.svg'));
+
+    // Build the HTML with SVG <img> tags
+    let galleryHTML = `
+      <head>
+        <meta charset="UTF-8">
+        <title>Galerie</title>l
+        <link href="/reset" rel="stylesheet">
+        <link href="/gallery-css" rel="stylesheet">
+        <meta http-equiv="refresh" content="5" >
+      </head>
+      <body>
+        <div class="fractal-background"></div>
+          <div class="gallery" id="gallery">
+            ${svgFiles.map(file => `<img src="/saved/${file}" alt="${file}">`).join('')}
+          </div>
+        <script src="/gallery-js" type="module"></script>
+      </body>
+    `;
+
+    res.send(galleryHTML);
+  });
 });
 
+// Serve files in the "saved" directory statically
+app.use('/saved', express.static(savedDir));
+
+
 app.get('/gallery-css', (req, res) => {
-    res.setHeader('Content-Type', 'text/html');
-    res.sendFile(path.join(__dirname, 'gallery/gallery.css'));
-    console.log('User requested gallery.css');
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'gallery/gallery.css'));
+  console.log('User requested gallery.css');
 });
 
 app.get('/gallery-js', (req, res) => {
-    res.setHeader('Content-Type', 'text/html');
-    res.sendFile(path.join(__dirname, 'gallery/gallery.js'));
-    console.log('User requested gallery.js');
+  res.setHeader('Content-Type', 'application/javascript');
+  res.sendFile(path.join(__dirname, 'gallery/gallery.js'));
+  console.log('User requested gallery.js');
 });
 
 
@@ -203,7 +237,7 @@ app.get('/gallery-js', (req, res) => {
 
 
 app.use((req, res) => {
-    res.status(404).send('404 Not Found');
+  res.status(404).send('404 Not Found');
 });
 
 

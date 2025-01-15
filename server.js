@@ -78,15 +78,15 @@ app.get('/index-css', (req, res) => {
 });
 
 app.get('/background', (req, res) => {
-    res.setHeader('Content-Type', 'image/png');
-    res.sendFile(path.join(__dirname, 'img/abstractBackground.png'));
-    console.log('User requested abstractBackground.png');
+  res.setHeader('Content-Type', 'image/png');
+  res.sendFile(path.join(__dirname, 'img/abstractBackground.png'));
+  console.log('User requested abstractBackground.png');
 });
 
 app.get('/background-credits', (req, res) => {
-    res.setHeader('Content-Type', 'image/png');
-    res.sendFile(path.join(__dirname, 'img/creditsBackground.png'));
-    console.log('User requested abstractBackground.png');
+  res.setHeader('Content-Type', 'image/png');
+  res.sendFile(path.join(__dirname, 'img/creditsBackground.png'));
+  console.log('User requested abstractBackground.png');
 });
 
 app.get('/stylesheet', (req, res) => {
@@ -96,9 +96,9 @@ app.get('/stylesheet', (req, res) => {
 });
 
 app.get('/credits-css', (req, res) => {
-    res.setHeader('Content-Type', 'text/css');
-    res.sendFile(path.join(__dirname, 'css/credits.css'));
-    console.log('User requested credits.css');
+  res.setHeader('Content-Type', 'text/css');
+  res.sendFile(path.join(__dirname, 'css/credits.css'));
+  console.log('User requested credits.css');
 });
 
 
@@ -135,7 +135,7 @@ app.get('/script', (req, res) => {
 
 //saving function
 app.post('/save-svg', (req, res) => {
-  const { svgContent } = req.body;
+  const {svgContent} = req.body;
   const randomName = crypto.randomBytes(16).toString('hex');
   const filePath = path.join(savedDir, `${randomName}.svg`);
   fs.writeFile(filePath, svgContent, (err) => {
@@ -172,27 +172,27 @@ app.get('/color-palette', (req, res) => {
 //
 //
 app.get('/credits', (req, res) => {
-    res.setHeader('Content-Type', 'text/html');
-    res.sendFile(path.join(__dirname, 'credits.html'));
-    console.log('User requested credits.html');
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'credits.html'));
+  console.log('User requested credits.html');
 });
 
 app.get('/mmi-logo', (req, res) => {
-    res.setHeader('Content-Type', 'image/png');
-    res.sendFile(path.join(__dirname, 'img/mmi-logo.png'));
-    console.log('User requested mmi-logo.png');
+  res.setHeader('Content-Type', 'image/png');
+  res.sendFile(path.join(__dirname, 'img/mmi-logo.png'));
+  console.log('User requested mmi-logo.png');
 });
 
 app.get('/musba-logo', (req, res) => {
-    res.setHeader('Content-Type', 'image/png');
-    res.sendFile(path.join(__dirname, 'img/musba-logo.png'));
-    console.log('User requested musba-logo.png');
+  res.setHeader('Content-Type', 'image/png');
+  res.sendFile(path.join(__dirname, 'img/musba-logo.png'));
+  console.log('User requested musba-logo.png');
 });
 
 app.get('/logo', (req, res) => {
-    res.setHeader('Content-Type', 'image/png');
-    res.sendFile(path.join(__dirname, 'img/logo.png'));
-    console.log('User requested logo.png');
+  res.setHeader('Content-Type', 'image/png');
+  res.sendFile(path.join(__dirname, 'img/logo.png'));
+  console.log('User requested logo.png');
 });
 
 //    _____       _ _
@@ -223,10 +223,10 @@ app.get('/gallery', (req, res) => {
 <html lang="en" style="background-color: #121212; color: #ffffff;">
       <head>
         <meta charset="UTF-8">
-        <title>Galerie</title>l
+        <title>Galerie</title>
         <link href="/reset" rel="stylesheet">
         <link href="/gallery-css" rel="stylesheet">
-        <meta http-equiv="refresh" content="5" >
+        <meta http-equiv="refresh" content="5">
       </head>
       <body>
         <div class="fractal-background"></div>
@@ -240,6 +240,13 @@ app.get('/gallery', (req, res) => {
     res.send(galleryHTML);
   });
 });
+
+// Serve images with cache control
+app.use('/saved', express.static(path.join(__dirname, 'saved'), {
+  setHeaders: (res, filePath) => {
+    res.setHeader('Cache-Control', 'public, max-age=31536000'); // Cache for 1 year
+  }
+}));
 
 // Serve files in the "saved" directory statically
 app.use('/saved', express.static(savedDir));

@@ -7,11 +7,15 @@ body {
     flex-direction: column;
     height: 100vh;
     margin: 0;
+    background-image: url(" /background");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 
 }
 
 .background-container {
-    background-image: url("img/abstrait 1.png"); /
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

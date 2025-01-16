@@ -20,7 +20,7 @@ body {
     width: 90%;
     max-width: 500px;
     text-align: center;
-    flex: 1; /* Permet au conteneur principal de s’adapter au milieu de l’écran */
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center; /* Centre le contenu de manière verticale */
@@ -80,34 +80,22 @@ body {
     padding: 10px 0; /* Espace intérieur du footer */
 }
 
-/* Ajustement des logos du footer */
-.footer-logo {
+
+.footer {
     width: 15%; /* Taille proportionnelle */
     max-width: 100px; /* Taille maximale pour éviter qu'il devienne trop grand */
     height: auto; /* Préserve les proportions */
     margin: 0 10px; /* Espacement horizontal entre les logos */
 }
 
-
-/* Responsive : Téléphones et petits écrans */
-@media (max-width: 768px) {
-    .logo img {
-        width: 70%; /* Plus grand logo sur petits écrans */
-    }
-
-    .footer-logo {
-        width: 20%; /* Taille augmentée pour les logos du footer */
-        max-width: 80px;
-    }
+#mmi-logo{
+    position: absolute;
+    bottom: 5vh;
+    left: 5vw;
 }
 
-@media (max-width: 480px) {
-    .logo img {
-        width: 90%; /* Presque toute la largeur disponible */
-    }
-
-    .footer-logo {
-        width: 25%; /* Taille encore plus grande pour les très petits écrans */
-        max-width: 70px;
-    }
+#musba-logo{
+    position: absolute;
+    bottom: 5vh;
+    right: 5vw;
 }

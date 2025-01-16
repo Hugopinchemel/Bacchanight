@@ -2,7 +2,8 @@ const saveButton = document.getElementById('save-btn');
 const link = document.createElement("a");
 const result = document.getElementById('result');
 
-saveButton.addEventListener('click', async () => {
+saveButton.addEventListener('click', async (
+) => {
   result.innerHTML = ''; // Clear previous result
   document.querySelectorAll('.coloring-zones-container svg').forEach((svg) => {
     svg.childNodes.forEach((svgChild) => {

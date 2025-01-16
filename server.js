@@ -3,6 +3,7 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const crypto = require('crypto');
+const fontsDir = path.join(__dirname, 'fonts');
 
 
 const app = express();
@@ -15,7 +16,7 @@ const app = express();
 //  |_| | | \ \| |____| |  | | |__| | \  /  | |____  | |_) | |____| |   | |__| | | \ \| |____  | |__| |____) | |____  |_|
 //  (_) |_|  \_\______|_|  |_|\____/   \/   |______| |____/|______|_|    \____/|_|  \_\______|  \____/|_____/|______| (_)
 
-// const host = process.env.HOST || 'localhost';
+const host = process.env.HOST || 'localhost';
 
 
 const port = process.env.PORT || 8080;
@@ -56,6 +57,12 @@ app.get('/reset-css', (req, res) => {
   console.log('User requested reset-css.css');
 });
 
+app.get('/font-css', (req, res) => {
+  res.setHeader('Content-Type', 'text/css');
+  res.sendFile(path.join(__dirname, 'css/font-css.css'));
+  console.log('User requested font-css.css');
+});
+
 app.get('/index-css', (req, res) => {
   res.setHeader('Content-Type', 'text/css');
   res.sendFile(path.join(__dirname, 'css/index-css.css'));
@@ -72,6 +79,12 @@ app.get('/painting-css', (req, res) => {
   res.setHeader('Content-Type', 'text/css');
   res.sendFile(path.join(__dirname, 'css/painting-css.css'));
   console.log('User requested painting.css');
+});
+
+app.get('/letter-css', (req, res) => {
+  res.setHeader('Content-Type', 'text/css');
+  res.sendFile(path.join(__dirname, 'css/letter-css.css'));
+  console.log('User requested letter.css');
 });
 
 
@@ -265,7 +278,18 @@ app.get('/letter', (req, res) => {
 });
 
 
-//  _  _    ___  _  _     ______
+//   ______          _
+//  |  ____|        | |
+//  | |__ ___  _ __ | |_ ___
+//  |  __/ _ \| '_ \| __/ __|
+//  | | | (_) | | | | |_\__ \
+//  |_|  \___/|_| |_|\__|___/
+
+
+app.use('/fonts', express.static(fontsDir));
+
+
+//   _  _    ___  _  _     ______
 //  | || |  / _ \| || |   |  ____|
 //  | || |_| | | | || |_  | |__   _ __ _ __ ___  _ __
 //  |__   _| | | |__   _| |  __| | '__| '__/ _ \| '__|
@@ -288,9 +312,9 @@ app.use((req, res) => {
 //                                                                                  |___/
 
 
-// app.listen(port, host, () => {
-//   console.log(`Server running at http://${host}:${port}/`);
-// });
+app.listen(port, host, () => {
+  console.log(`Server running at http://${host}:${port}/`);
+});
 
 
 //   _    _____         _ _       _       _                 _                    _ _     _              _     _

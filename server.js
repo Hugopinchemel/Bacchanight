@@ -176,7 +176,7 @@ app.get('/color-palette', (req, res) => {
 });
 
 
-//   _____              _ _ _
+//    _____              _ _ _
 //   / ____|            | (_) |
 //  | |     _ __ ___  __| |_| |_ ___
 //  | |    | '__/ _ \/ _` | | __/ __|
@@ -207,6 +207,7 @@ app.get('/logo', (req, res) => {
   res.sendFile(path.join(__dirname, 'img/logo.png'));
   console.log('User requested logo.png');
 });
+
 
 //    _____       _ _
 //   / ____|     | | |

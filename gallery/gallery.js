@@ -5,7 +5,7 @@ async function getImages() {
 
   images.forEach((image)=>{
     const img = document.createElement("img");
-    img.id = "gallery";
+    img.id = "gallery-painting";
     img.src = "/saved/" + image;
     document.body.appendChild(img);
   })

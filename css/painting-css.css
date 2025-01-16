@@ -3,7 +3,7 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    flex-direction: column;
+    flex-direction: row;
     height: 100vh;
     margin: 0;
     border-radius: 12px;
@@ -69,6 +69,7 @@ body {
 
 .coloring-zones-container {
     display: flex;
+    left: 10vw;
     gap: 10px;
     margin-top: 20px;
 }
@@ -77,8 +78,8 @@ body {
     cursor: pointer;
     pointer-events: none;
     position: absolute;
-    top: 1vw;
     left: 10vw;
+    top: -20vw;
 }
 
 .coloring-zone path {
@@ -87,8 +88,7 @@ body {
 
 #picture {
     position: absolute;
-    top: 1vw;
-    left: 10vw;
+    top: -20vw;
     z-index: 9999;
     pointer-events: none;
 }

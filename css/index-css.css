@@ -1,39 +1,33 @@
+html{
+    background-image: url("/background");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
 
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
-    margin: 0;
-    background-image: url("/background");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-
 }
 
 
 .container {
     width: 90%;
-    max-width: 500px;
     text-align: center;
-    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centre le contenu de manière verticale */
+    justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 30vh;
 }
 
 /* Logo en haut */
 .logo {
-    margin-top: 20px; /* Espace en haut */
-    text-align: center; /* Centre le logo */
-    width: 80%; /* Largeur adaptative : 50% de la largeur du conteneur */
-    max-width: 300px; /* Taille maximale pour éviter qu'il devienne trop grand */
-    height: auto; /* Préserve les proportions */
+    text-align: center;
+    margin-top: 20px;
+
 }
 
 

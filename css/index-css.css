@@ -21,6 +21,8 @@ body {
     align-items: center;
     position: absolute;
     top: 30vh;
+    left: 5vw;
+    right: 5vw;
 }
 
 /* Logo en haut */

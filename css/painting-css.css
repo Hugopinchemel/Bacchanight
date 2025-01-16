@@ -1,3 +1,7 @@
+html{
+    background-color: #191714;
+}
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -30,11 +34,11 @@ body {
     flex-wrap: nowrap;
     scroll-behavior: smooth;
     gap: 80px;
-    height: 10vh;
+    height: 40vh;
     justify-content: flex-start;
     width: 90vw;
     overflow-x: scroll;
-    align-items: center;
+    align-items: flex-start;
     padding: 20px;
 }
 
@@ -105,43 +109,17 @@ body {
     pointer-events: none;
 }
 
-/* Fractal Plaid Background */
-.fractal-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(45deg, #333 25%, transparent 25%) -50px 0/100px 100px,
-    linear-gradient(135deg, #333 25%, transparent 25%) -50px 0/100px 100px,
-    linear-gradient(45deg, transparent 75%, #111 75%) -50px 0/100px 100px,
-    linear-gradient(135deg, transparent 75%, #111 75%) -50px 0/100px 100px;
-    background-color: #222;
-    animation: animatePlaid 5s linear infinite;
-    z-index: -1;
-}
-
-/* Fractal Plaid Animation */
-@keyframes animatePlaid {
-    0% {
-        background-position: 0 0, 0 0, 0 0, 0 0;
-    }
-    100% {
-        background-position: 100px 100px, -100px 100px, 100px -100px, -100px -100px;
-    }
-}
-
-html {
-    background-color: #eefbf8;
-    background-image: radial-gradient(circle, hsla(0, 0%, 100%, .1), hsla(0, 0%, 0%, .75)),
-    linear-gradient(to left, transparent 50%, hsla(0, 0%, 0%, .01) 50%);
-    background-position: 50% 75%, 50% 50%;
-    background-repeat: no-repeat, repeat;
-    background-size: 150% 150%, 3em 3em;
-    font-size: 100%;
-    min-height: 100%;
-}
-
 #result {
     display: none;
+}
+
+#save-btn {
+    font-family: Raleway, sans-serif;
+    color: #fff;
+    font-size: 16px;
+    width: 175px;
+    height: 50px;
+    border-radius: 50px;
+    background: var(--Fond, linear-gradient(197deg, rgba(221, 243, 252, 0.10) 2.84%, rgba(255, 255, 255, 0.00) 100%), linear-gradient(19deg, rgba(17, 16, 16, 0.40) 72.07%, rgba(255, 255, 255, 0.00) 150.29%), #1A1D26);
+    background-blend-mode: normal, overlay, normal;
 }

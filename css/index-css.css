@@ -42,9 +42,10 @@ body {
     margin-top: 30px; /* Espace avant les boutons */
 }
 
-/* Style du bouton "Jouer" */
+
 .btn-play {
-    background-color: black; /* Fond noir */
+    font-family: Raleway, sans-serif;
+    background-color: black;
     color: white; /* Écriture blanche */
     border-radius: 50px; /* Coins arrondis */
     border: none; /* Pas de bordure */
@@ -56,6 +57,7 @@ body {
 
 /* Style du bouton "Crédits" */
 .btn-credit {
+    font-family: Raleway, sans-serif;
     background-color: transparent; /* Fond transparent */
     color: white; /* Écriture blanche */
     border: 2px solid white; /* Bordure blanche */

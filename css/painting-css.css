@@ -34,7 +34,7 @@ body {
     flex-wrap: nowrap;
     scroll-behavior: smooth;
     gap: 80px;
-    height: 30vh;
+    height: 20vh;
     justify-content: flex-start;
     width: 90vw;
     overflow-x: scroll;
@@ -117,7 +117,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-bottom: 5vh;
+    margin-bottom: 10vh;
 }
 
 #save-btn {

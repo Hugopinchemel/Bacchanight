@@ -16,7 +16,7 @@ const app = express();
 //  |_| | | \ \| |____| |  | | |__| | \  /  | |____  | |_) | |____| |   | |__| | | \ \| |____  | |__| |____) | |____  |_|
 //  (_) |_|  \_\______|_|  |_|\____/   \/   |______| |____/|______|_|    \____/|_|  \_\______|  \____/|_____/|______| (_)
 
-const host = process.env.HOST || 'localhost';
+// const host = process.env.HOST || 'localhost';
 
 
 const port = process.env.PORT || 8080;
@@ -55,6 +55,12 @@ app.get('/reset-css', (req, res) => {
   res.setHeader('Content-Type', 'text/css');
   res.sendFile(path.join(__dirname, 'css/reset-css.css'));
   console.log('User requested reset-css.css');
+});
+
+app.get('gallery-css', (req, res) => {
+  res.setHeader('Content-Type', 'text/css');
+  res.sendFile(path.join(__dirname, 'css/gallery-css.css'));
+  console.log('User requested gallery-css.css');
 });
 
 app.get('/font-css', (req, res) => {
@@ -115,9 +121,9 @@ app.get('/background-credits', (req, res) => {
 });
 
 app.get('/gallery-css', (req, res) => {
-  res.setHeader('Content-Type', 'text/html');
-  res.sendFile(path.join(__dirname, 'gallery/gallery.css'));
-  console.log('User requested gallery.css');
+  res.setHeader('Content-Type', 'text/css');
+  res.sendFile(path.join(__dirname, 'css/gallery-css.css'));
+  console.log('User requested gallery-css.css');
 });
 
 
@@ -219,7 +225,7 @@ app.get('/logo', (req, res) => {
 //                              |___/
 
 
-app.get('/all-images', (req, res) => {
+app.get('/gallery', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.sendFile(path.join(__dirname, 'gallery/gallery.html'));
   console.log('User requested gallery.html');
@@ -301,9 +307,9 @@ app.use((req, res) => {
 //                                                                                  |___/
 
 
-app.listen(port, host, () => {
-  console.log(`Server running at http://${host}:${port}/`);
-});
+// app.listen(port, host, () => {
+//   console.log(`Server running at http://${host}:${port}/`);
+// });
 
 
 //   _    _____         _ _       _       _                 _                    _ _     _              _     _

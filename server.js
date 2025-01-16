@@ -149,11 +149,11 @@ app.get('/random-drawing', (req, res) => {
   if (randomnumber < 0.25) {
     res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
   } else if (randomnumber < 0.50) {
-    res.sendFile(path.join(__dirname, 'drawings/tableau-2/tableau-2.html'));
+    res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
   } else if (randomnumber < 0.75) {
-    res.sendFile(path.join(__dirname, 'drawings/tableau-3/tableau-3.html'));
+    res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
   } else {
-    res.sendFile(path.join(__dirname, 'drawings/tableau-4/tableau-4.html'));
+    res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
   }
 });
 

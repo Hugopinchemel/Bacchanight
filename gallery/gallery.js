@@ -15,12 +15,12 @@ async function getImages() {
     document.body.appendChild(figure);
     const img = document.createElement("img");
     img.className = "frame";
-    img.width = 150;
-    img.height = 115.5;
+    img.style.width = "300px";
+    img.style.height = "200px";
     img.src = "/saved/" + image;
     document.body.appendChild(img);
   });
 }
 
-getImages();
-setInterval(getImages, 5000000000000000000);
+getImages().then(r => console.log("Initial images fetched"));
+setInterval(getImages, 5000);

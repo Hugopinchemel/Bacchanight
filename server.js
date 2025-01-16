@@ -203,11 +203,11 @@ app.get('/musba-logo', (req, res) => {
 });
 
 app.get('/logo', (req, res) => {
-  res.setHeader('Content-Type', 'image/png');
-  res.sendFile(path.join(__dirname, 'img/logo.png'));
-  console.log('User requested logo.png');
+  res.setHeader('Content-Type', 'image/svg+xml');
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.sendFile(path.join(__dirname, 'img/logo.svg'));
+  console.log('User requested logo.svg');
 });
-
 
 //    _____       _ _
 //   / ____|     | | |

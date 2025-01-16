@@ -1,0 +1,23 @@
+html {
+    background-color: #191714;
+    height:100%;
+}
+
+/* Boutons */
+.back-button {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 22px; /* Plus visible */
+    display: inline-block;
+}
+
+/* Plus grande taille par défaut */
+h1 {
+    font-size: 48px; /* Grossir encore plus pour les titres */
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}

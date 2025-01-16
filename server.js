@@ -93,6 +93,12 @@ app.get('/letter-css', (req, res) => {
   console.log('User requested letter.css');
 });
 
+app.get('/comparaison-css', (req, res) => {
+  res.setHeader('Content-Type', 'text/css');
+  res.sendFile(path.join(__dirname, 'css/comparaison-css.css'));
+  console.log('User requested letter.css');
+});
+
 
 //   _____           _
 //  |_   _|         | |
@@ -270,6 +276,18 @@ app.get('/letter', (req, res) => {
   res.sendFile(path.join(__dirname, 'Game Pages/letter.html'));
   console.log('User requested letter.html');
 });
+
+//   _____                                      _
+//   / ____|                                    (_)
+//  | |     ___  _ __ ___  _ __   __ _ _ __ __ _ _ ___  ___  _ __
+//  | |    / _ \| '_ ` _ \| '_ \ / _` | '__/ _` | / __|/ _ \| '_ \
+//  | |___| (_) | | | | | | |_) | (_| | | | (_| | \__ \ (_) | | | |
+//   \_____\___/|_| |_| |_| .__/ \__,_|_|  \__,_|_|___/\___/|_| |_|
+//                        | |
+//                        |_|
+
+
+
 
 
 //   ______          _

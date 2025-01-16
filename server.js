@@ -218,7 +218,13 @@ app.get('/logo', (req, res) => {
 //                              |___/
 
 
-app.get('/gallery', (req, res) => {
+app.get('/all-images', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'gallery/gallery.html'));
+  console.log('User requested gallery.html');
+});
+
+app.get('/images', (req, res) => {
   const savedDir = path.join(__dirname, 'saved');
 
   fs.readdir(savedDir, (err, files) => {
@@ -228,28 +234,10 @@ app.get('/gallery', (req, res) => {
       return;
     }
 
-    // Filter for SVG files
-    const svgFiles = files.filter(file => file.endsWith('.svg'));
-
     // Build the HTML with SVG <img> tags
-    let galleryHTML = `
-      <head>
-        <meta charset="UTF-8">
-        <title>Galerie</title>l
-        <link href="/reset-css" rel="stylesheet">
-        <link href="/gallery-css" rel="stylesheet">
-        <meta http-equiv="refresh" content="5" >
-      </head>
-      <body>
-        <div class="fractal-background"></div>
-          <div class="gallery" id="gallery">
-            ${svgFiles.map(file => `<img src="/saved/${file}" alt="${file}">`).join('')}
-          </div>
-        <script src="/gallery-js" type="module"></script>
-      </body>
-    `;
-
-    res.send(galleryHTML);
+    let galleryHTML = files.filter(file => file.endsWith('.svg'));
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(galleryHTML));
   });
 });
 

@@ -15,7 +15,7 @@ const app = express();
 //  |_| | | \ \| |____| |  | | |__| | \  /  | |____  | |_) | |____| |   | |__| | | \ \| |____  | |__| |____) | |____  |_|
 //  (_) |_|  \_\______|_|  |_|\____/   \/   |______| |____/|______|_|    \____/|_|  \_\______|  \____/|_____/|______| (_)
 
-const host = process.env.HOST || 'localhost';
+// const host = process.env.HOST || 'localhost';
 
 
 const port = process.env.PORT || 8080;
@@ -288,9 +288,9 @@ app.use((req, res) => {
 //                                                                                  |___/
 
 
-app.listen(port, host, () => {
-  console.log(`Server running at http://${host}:${port}/`);
-});
+// app.listen(port, host, () => {
+//   console.log(`Server running at http://${host}:${port}/`);
+// });
 
 
 //   _    _____         _ _       _       _                 _                    _ _     _              _     _

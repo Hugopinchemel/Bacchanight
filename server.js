@@ -266,7 +266,7 @@ app.get('/gallery-js', (req, res) => {
 
 
 app.get('/letter', (req, res) => {
-  res.setHeader('Content-Type', 'text /html');
+  res.setHeader('Content-Type', 'text/html');
   res.sendFile(path.join(__dirname, 'Game Pages/letter.html'));
   console.log('User requested letter.html');
 });

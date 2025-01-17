@@ -1,23 +1,57 @@
-html {
-    background-color: #191714;
-    height: 100%;
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #1A1D26;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: #FFFFFF; /* Tout le texte en blanc */
+}
+
+/* Reset */
+body, h1, h2, ul, li, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Rendre tout le texte très grand, blanc et en gras */
+h1, h2, ul, li, a, p {
+    font-weight: bold; /* En gras */
+    color: #FFFFFF; /* Texte en blanc */
+}
+
+/* Header */
+header {
+    text-align: left;
+    margin-bottom: 20px;
 }
 
 /* Boutons */
 .back-button {
     text-decoration: none;
     color: #FFFFFF;
-    font-size: 22px; /* Plus visible */
+    font-size: 22px;
     display: inline-block;
+    position: absolute;
+    top: 20px; /* Espace par rapport au haut */
+    left: 20px; /* Espace par rapport à la gauche */
 }
 
 /* Plus grande taille par défaut */
 h1 {
-    font-size: 48px; /* Grossir encore plus pour les titres */
+    font-size: 20px; /* Grossir encore plus pour les titres */
     margin-bottom: 20px;
 }
 
 h2 {
-    font-size: 36px;
+    font-size: 15px;
     margin-bottom: 15px;
 }

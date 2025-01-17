@@ -32,7 +32,7 @@ body {
     width: 90vw;
     overflow-x: scroll;
     align-items: flex-start;
-    padding: 20px;
+    padding: 25px;
 
 }
 
@@ -61,8 +61,7 @@ body {
 }
 
 .color-swatch.selected {
-    top: 10px;
-    left: -10px;
+    top: -10px;
 }
 
 

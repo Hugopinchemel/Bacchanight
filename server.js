@@ -298,6 +298,19 @@ app.get('/letter', (req, res) => {
 //                        |_|
 
 
+app.get('/comparaison', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, '/comparaison.html'));
+  console.log('User requested comparaison.html');
+});
+
+app.get('/Redon_barque_mystique', (req, res) => {
+  res.setHeader('Content-Type', 'image/png');
+  res.sendFile(path.join(__dirname, 'img/Redon_barque_mystique.png'));
+  console.log('User requested Redon_barque_mystique.png');
+});
+
+
 //   ______          _
 //  |  ____|        | |
 //  | |__ ___  _ __ | |_ ___

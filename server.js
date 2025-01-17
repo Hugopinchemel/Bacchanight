@@ -160,7 +160,7 @@ app.get('/random-drawing', (req, res) => {
   } else if (randomnumber < 0.75) {
     res.sendFile(path.join(__dirname, 'drawings/boat/boat.html'));
   } else {
-    res.sendFile(path.join(__dirname, 'drawings/saint-sebastien/saint-sebastien.htm'));
+    res.sendFile(path.join(__dirname, 'drawings/saint-sebastien/saint-sebastien.html'));
   }
 });
 

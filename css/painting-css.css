@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    font-family: Arial, sans-serif;;
+    font-family: Arial, sans-serif;
 }
 
 .color-picker-container {
@@ -27,7 +27,6 @@ body {
     flex-wrap: nowrap;
     scroll-behavior: smooth;
     gap: 80px;
-    bottom: 100vw;
     height: 10vh;
     justify-content: flex-start;
     width: 90vw;
@@ -35,7 +34,6 @@ body {
     align-items: flex-start;
     padding: 20px;
 }
-
 
 .color-swatch {
     width: 44px;
@@ -57,7 +55,6 @@ body {
     background: inherit;
     border-radius: 50%;
     overflow: visible;
-
 }
 
 .color-swatch.selected {
@@ -71,7 +68,6 @@ body {
 
 .coloring-zones-container {
     display: flex;
-    left: 10vw;
     gap: 10px;
     margin-top: 20px;
 }
@@ -114,18 +110,7 @@ body {
     padding-bottom: 10vh;
 }
 
-#save-btn {
-    font-family: Raleway, sans-serif;
-    color: #fff;
-    font-size: 16px;
-    width: 40vw;
-    height: 50px;
-    border-radius: 50px;
-    background: var(--Fond, linear-gradient(197deg, rgba(221, 243, 252, 0.10) 2.84%, rgba(255, 255, 255, 0.00) 100%), linear-gradient(19deg, rgba(17, 16, 16, 0.40) 72.07%, rgba(255, 255, 255, 0.00) 150.29%), #1A1D26);
-    background-blend-mode: normal, overlay, normal;
-}
-
-#download-btn {
+#save-btn, #download-btn {
     font-family: Raleway, sans-serif;
     color: #fff;
     font-size: 16px;

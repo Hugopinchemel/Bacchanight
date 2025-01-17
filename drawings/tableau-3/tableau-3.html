@@ -5,13 +5,11 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Bacchanight</title>
     <link href="/reset-css" rel="stylesheet">
+    <link href="/font-css" rel="stylesheet">
     <link href="/painting-css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
-
-
-<div class="fractal-background"></div>
 
 
 <!-- /Background -->
@@ -69,16 +67,20 @@
         </svg>
     </div>
 </div>
-<div class="color-picker-container">
-    <div class="color-palette" id="colorPalette">
-        <script src="/color-palette"></script>
-    </div>
-    <div class="buttons">
-        <button id="save-btn">Valider le tableau</button>
+<div class="bottom-section">
+    <div class="color-picker-container">
+        <div class="color-palette" id="colorPalette">
+            <script src="/color-palette"></script>
+        </div>
+        <div class="button-section">
+            <button id="save-btn">Sauvegarder</button>
+            <button id="download-btn">Télécharger</button>
+        </div>
     </div>
 </div>
 
 <svg fill="none" height="75vh" id="result" viewBox="0 0 1200 927" width="80vw" xmlns="http://www.w3.org/2000/svg"></svg>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="/save" type="module"></script>

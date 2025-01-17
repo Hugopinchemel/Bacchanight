@@ -145,17 +145,24 @@ app.get('/gallery-css', (req, res) => {
 
 app.get('/random-drawing', (req, res) => {
     res.setHeader('Content-Type', 'text/html');
-    var randomnumber = Math.random();
-    if (randomnumber < 0.25) {
-        res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
-    } else if (randomnumber < 0.50) {
-        res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
-    } else if (randomnumber < 0.75) {
-        res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
-    } else {
-        res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
-    }
+    res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
+    console.log('IF YOU SEE THIS, SOMETHING WENT WRONG');
 });
+
+
+// app.get('/random-drawing', (req, res) => {
+//     res.setHeader('Content-Type', 'text/html');
+//     var randomnumber = Math.random();
+//     if (randomnumber < 0.25) {
+//         res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
+//     } else if (randomnumber < 0.50) {
+//         res.sendFile(path.join(__dirname, 'drawings/char/char.html'));
+//     } else if (randomnumber < 0.75) {
+//         res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
+//     } else {
+//         res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
+//     }
+// });
 
 
 //saving function
@@ -185,6 +192,12 @@ app.get('/color-palette', (req, res) => {
     res.setHeader('Content-Type', 'application/javascript');
     res.sendFile(path.join(__dirname, 'drawings/Java-Script/color-palette.js'));
     console.log('User requested color-palette.js');
+});
+
+app.get('/char-picture', (req, res) => {
+    res.setHeader('Content-Type', 'image/png');
+    res.sendFile(path.join(__dirname, 'drawings/char/OdilonRedon-The_Chariot_of_Apollo.png'));
+    console.log('User requested OdilonRedon-The_Chariot_of_Apollo.png');
 });
 
 

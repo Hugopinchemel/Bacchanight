@@ -143,11 +143,11 @@ app.get('/gallery-css', (req, res) => {
 //                                  |___/
 
 
-app.get('/random-drawing', (req, res) => {
-  res.setHeader('Content-Type', 'text/html');
-  res.sendFile(path.join(__dirname, 'drawings/bridge/bridge.html'));
-  console.log('IF YOU SEE THIS, SOMETHING WENT WRONG');
-});
+// app.get('/random-drawing', (req, res) => {
+//   res.setHeader('Content-Type', 'text/html');
+//   res.sendFile(path.join(__dirname, 'drawings/bridge/bridge.html'));
+//   console.log('IF YOU SEE THIS, SOMETHING WENT WRONG');
+// });
 
 
 // app.get('/random-drawing', (req, res) => {
@@ -158,7 +158,7 @@ app.get('/random-drawing', (req, res) => {
 //   } else if (randomnumber < 0.50) {
 //     res.sendFile(path.join(__dirname, 'drawings/char/char.html'));
 //   } else if (randomnumber < 0.75) {
-//     res.sendFile(path.join(__dirname, 'drawings/bridge/bridge.html'));
+//     res.sendFile(path.join(__dirname, 'drawings/boat/boat.html'));
 //   } else {
 //     res.sendFile(path.join(__dirname, 'drawings/saint-sebastien/saint-sebastien.htm'));
 //   }

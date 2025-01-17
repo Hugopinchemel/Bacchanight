@@ -33,6 +33,7 @@ body {
     overflow-x: scroll;
     align-items: flex-start;
     padding: 20px;
+
 }
 
 .color-swatch {
@@ -40,9 +41,9 @@ body {
     height: 44px;
     border-radius: 50%;
     cursor: pointer;
-    border: 3px solid rgba(0, 0, 0, 0);
     position: relative;
     overflow: visible;
+
 }
 
 .color-swatch::before {
@@ -55,11 +56,16 @@ body {
     background: inherit;
     border-radius: 50%;
     overflow: visible;
+
+
 }
 
 .color-swatch.selected {
-    border: 3px solid #000000;
+    top: 10px;
+    left: -10px;
 }
+
+
 
 .color-code {
     font-size: 14px;

@@ -17,10 +17,6 @@ body {
 }
 
 
-header {
-    text-align: left;
-    margin-bottom: 20px;
-}
 
 /* Boutons */
 .back-button {
@@ -31,6 +27,8 @@ header {
     position: absolute;
     top: 20px; /* Espace par rapport< au haut */
     left: 20px; /* Espace par rapport à la gauche */
+    text-align: left;
+    margin-bottom: 20px;
 }
 
 /* Plus grande taille par défaut */

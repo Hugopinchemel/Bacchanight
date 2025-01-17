@@ -113,7 +113,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding-bottom: 10vh;
+    padding-bottom: 5vh;
 }
 
 #save-btn, #download-btn {

@@ -19,5 +19,5 @@ async function getImages() {
   });
 }
 
-getImages().then(r => console.log("Initial images fetched"));
+getImages();
 setInterval(getImages, 5000);

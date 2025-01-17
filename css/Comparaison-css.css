@@ -12,23 +12,11 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    color: #FFFFFF; /* Tout le texte en blanc */
+    color: #FFFFFF;
+    padding-top: 60px; /* Ajoute de l'espace au-dessus du contenu */
 }
 
-/* Reset */
-body, h1, h2, ul, li, a {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-/* Rendre tout le texte très grand, blanc et en gras */
-h1, h2, ul, li, a, p {
-    font-weight: bold; /* En gras */
-    color: #FFFFFF; /* Texte en blanc */
-}
-
-/* Header */
 header {
     text-align: left;
     margin-bottom: 20px;
@@ -41,7 +29,7 @@ header {
     font-size: 22px;
     display: inline-block;
     position: absolute;
-    top: 20px; /* Espace par rapport au haut */
+    top: 20px; /* Espace par rapport< au haut */
     left: 20px; /* Espace par rapport à la gauche */
 }
 
@@ -54,4 +42,52 @@ h1 {
 h2 {
     font-size: 15px;
     margin-bottom: 15px;
+}
+.buttons {
+    display: flex;
+    flex-direction: row; /* Aligne les boutons en colonne (verticalement) */
+    gap: 20px; /* Ajoute de l'espace entre chaque bouton */
+    width: 80%; /* Utilisation complète de l'espace disponible */
+    margin-bottom: 20px;
+    margin-left: 20px;
+
+}
+
+
+.btn-oui {
+    font-family: Raleway, sans-serif;
+    background-color: black;
+    color: white; /* Écriture blanche */
+    border-radius: 50px; /* Coins arrondis */
+    border: none; /* Pas de bordure */
+    padding: 20px; /* Plus de hauteur */
+    font-size: 20px; /* Texte plus grand */
+    font-weight: bold; /* Texte en gras */
+    width: 100%; /* Rendre le bouton large */
+}
+
+/* Style du bouton "Crédits" */
+.btn-non {
+    font-family: Raleway, sans-serif;
+    background-color: transparent; /* Fond transparent */
+    color: white; /* Écriture blanche */
+    border: 2px solid white; /* Bordure blanche */
+    border-radius: 50px; /* Coins arrondis */
+    padding: 20px; /* Plus de hauteur */
+    font-size: 20px; /* Texte plus grand */
+    font-weight: bold; /* Texte en gras */
+    width: 100%; /* Rendre le bouton large */
+}
+image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-height: 50vh; /* Empêche l'image de déborder */
+    overflow: hidden; /* Coupe l'image si elle est trop grande */
+}
+
+img {
+    width: 100%; /* Adapte l'image à la largeur du conteneur */
+    height: auto; /* Conserve les proportions */
 }

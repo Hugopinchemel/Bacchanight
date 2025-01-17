@@ -310,6 +310,12 @@ app.get('/Redon_barque_mystique', (req, res) => {
   console.log('User requested Redon_barque_mystique.png');
 });
 
+app.get('/odiloncomparaison', (req, res) => {
+  res.setHeader('Content-Type', 'image/png');
+  res.sendFile(path.join(__dirname, 'img/odiloncomparaison.png'));
+  console.log('User requested odiloncomparaison.png');
+});
+
 
 //   ______          _
 //  |  ____|        | |

@@ -297,16 +297,28 @@ app.get('/letter', (req, res) => {
 //                        | |
 //                        |_|
 
-app.get('/comparaison', (req, res) => {
+app.get('/comparaisonbato', (req, res) => {
     res.setHeader('Content-Type', 'text/html');
-    res.sendFile(path.join(__dirname, 'Game Pages/comparaison.html'));
+    res.sendFile(path.join(__dirname, 'Game Pages/comparaisonbato.html'));
     console.log('User requested comparaison.html');
 });
 
-app.get('/comparaison', (req, res) => {
-  res.setHeader('Content-Type', 'text/html');
-  res.sendFile(path.join(__dirname, '/comparaison.html'));
-  console.log('User requested comparaison.html');
+app.get('/comparaisonbridge', (req, res) => {
+    res.setHeader('Content-Type', 'text/html');
+    res.sendFile(path.join(__dirname, 'Game Pages/comparaisonbridge.html'));
+    console.log('User requested comparaisonbridge.html');
+});
+
+app.get('/comparaisonchar', (req, res) => {
+    res.setHeader('Content-Type', 'text/html');
+    res.sendFile(path.join(__dirname, 'Game Pages/comparaisonchar.html'));
+    console.log('User requested comparaisonchar.html');
+});
+
+app.get('/comparaisonsebastien', (req, res) => {
+    res.setHeader('Content-Type', 'text/html');
+    res.sendFile(path.join(__dirname, 'Game Pages/comparaisonsebastien.html'));
+    console.log('User requested comparaisonsebastien.html');
 });
 
 app.get('/Redon_barque_mystique', (req, res) => {
@@ -320,6 +332,20 @@ app.get('/odiloncomparaison', (req, res) => {
   res.sendFile(path.join(__dirname, 'img/odiloncomparaison.png'));
   console.log('User requested odiloncomparaison.png');
 });
+
+app.get('/sebastien', (req, res) => {
+    res.setHeader('Content-Type', 'image/png');
+    res.sendFile(path.join(__dirname, 'img/sebastien.png'));
+    console.log('User requested sebastien.png');
+});
+
+app.get('/char', (req, res) => {
+    res.setHeader('Content-Type', 'image/png');
+    res.sendFile(path.join(__dirname, 'img/char.png'));
+    console.log('User requested char.png');
+});
+
+
 
 
 //   ______          _

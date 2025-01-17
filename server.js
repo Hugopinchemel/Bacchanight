@@ -297,6 +297,11 @@ app.get('/letter', (req, res) => {
 //                        | |
 //                        |_|
 
+app.get('/comparaison', (req, res) => {
+    res.setHeader('Content-Type', 'text/html');
+    res.sendFile(path.join(__dirname, 'Game Pages/comparaison.html'));
+    console.log('User requested comparaison.html');
+});
 
 app.get('/comparaison', (req, res) => {
   res.setHeader('Content-Type', 'text/html');

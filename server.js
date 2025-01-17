@@ -160,7 +160,7 @@ app.get('/random-drawing', (req, res) => {
   } else if (randomnumber < 0.75) {
     res.sendFile(path.join(__dirname, 'drawings/boat/boat.html'));
   } else {
-    res.sendFile(path.join(__dirname, 'drawings/saint-sebastien/saint-sebastien.htm'));
+    res.sendFile(path.join(__dirname, 'drawings/saint-sebastien/saint-sebastien.html'));
   }
 });
 
@@ -298,6 +298,19 @@ app.get('/letter', (req, res) => {
 //   \_____\___/|_| |_| |_| .__/ \__,_|_|  \__,_|_|___/\___/|_| |_|
 //                        | |
 //                        |_|
+
+
+app.get('/comparaison', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, '/comparaison.html'));
+  console.log('User requested comparaison.html');
+});
+
+app.get('/Redon_barque_mystique', (req, res) => {
+  res.setHeader('Content-Type', 'image/png');
+  res.sendFile(path.join(__dirname, 'img/Redon_barque_mystique.png'));
+  console.log('User requested Redon_barque_mystique.png');
+});
 
 
 //   ______          _

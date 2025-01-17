@@ -1,4 +1,4 @@
-html{
+html {
     background-image: url("/background");
     background-size: cover;
     background-position: center;
@@ -86,13 +86,13 @@ body {
     margin: 0 10px; /* Espacement horizontal entre les logos */
 }
 
-#mmi-logo{
+#mmi-logo {
     position: absolute;
     bottom: 5vh;
     left: 5vw;
 }
 
-#musba-logo{
+#musba-logo {
     position: absolute;
     bottom: 5vh;
     right: 5vw;

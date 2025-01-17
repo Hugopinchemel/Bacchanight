@@ -1,16 +1,9 @@
-html{
+html {
     background-color: #191714;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    flex-direction: row;
-    height: 100vh;
-    margin: 0;
-    border-radius: 12px;
+    font-family: Arial, sans-serif;;
 }
 
 .color-picker-container {
@@ -34,7 +27,8 @@ body {
     flex-wrap: nowrap;
     scroll-behavior: smooth;
     gap: 80px;
-    height: 20vh;
+    bottom: 100vw;
+    height: 10vh;
     justify-content: flex-start;
     width: 90vw;
     overflow-x: scroll;
@@ -117,7 +111,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-bottom: 10vh;
+    padding-bottom: 10vh;
 }
 
 #save-btn {
@@ -132,7 +126,6 @@ body {
 }
 
 #download-btn {
-
     font-family: Raleway, sans-serif;
     color: #fff;
     font-size: 16px;
@@ -141,4 +134,10 @@ body {
     border-radius: 50px;
     background: var(--Fond, linear-gradient(197deg, rgba(221, 243, 252, 0.10) 2.84%, rgba(255, 255, 255, 0.00) 100%), linear-gradient(19deg, rgba(17, 16, 16, 0.40) 72.07%, rgba(255, 255, 255, 0.00) 150.29%), #1A1D26);
     background-blend-mode: normal, overlay, normal;
+}
+
+.bottom-section {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

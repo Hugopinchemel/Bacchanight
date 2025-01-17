@@ -143,24 +143,24 @@ app.get('/gallery-css', (req, res) => {
 //                                  |___/
 
 
-app.get('/random-drawing', (req, res) => {
-    res.setHeader('Content-Type', 'text/html');
-    res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
-    console.log('IF YOU SEE THIS, SOMETHING WENT WRONG');
-});
-
-
 // app.get('/random-drawing', (req, res) => {
 //     res.setHeader('Content-Type', 'text/html');
-//     var randomnumber = Math.random();
-//     if (randomnumber < 0.33) {
-//         res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
-//     } else if (randomnumber < 0.66) {
-//         res.sendFile(path.join(__dirname, 'drawings/char/char.html'));
-//     }  else {
-//         res.sendFile(path.join(__dirname, 'drawings/saint-sebastien/saint-sebastien.html'));
-//     }
+//     res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
+//     console.log('IF YOU SEE THIS, SOMETHING WENT WRONG');
 // });
+
+
+app.get('/random-drawing', (req, res) => {
+    res.setHeader('Content-Type', 'text/html');
+    var randomnumber = Math.random();
+    if (randomnumber < 0.80) {
+        res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
+    } else if (randomnumber < 0.90) {
+        res.sendFile(path.join(__dirname, 'drawings/char/char.html'));
+    }  else {
+        res.sendFile(path.join(__dirname, 'drawings/saint-sebastien/saint-sebastien.html'));
+    }
+});
 
 
 //saving function

@@ -153,12 +153,10 @@ app.get('/gallery-css', (req, res) => {
 app.get('/random-drawing', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   let randomnumber = Math.random();
-  if (randomnumber < 0.25) {
+  if (randomnumber < 0.33) {
     res.sendFile(path.join(__dirname, 'drawings/boat/boat.html'));
-  } else if (randomnumber < 0.50) {
+  } else if (randomnumber < 0.66) {
     res.sendFile(path.join(__dirname, 'drawings/char/char.html'));
-  } else if (randomnumber < 0.75) {
-    res.sendFile(path.join(__dirname, 'drawings/boat/boat.html'));
   } else {
     res.sendFile(path.join(__dirname, 'drawings/saint-sebastien/saint-sebastien.html'));
   }

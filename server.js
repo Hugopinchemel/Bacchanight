@@ -143,31 +143,38 @@ app.get('/gallery-css', (req, res) => {
 //                                  |___/
 
 
-// app.get('/random-drawing', (req, res) => {
-//     res.setHeader('Content-Type', 'text/html');
-//     res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
-//     console.log('IF YOU SEE THIS, SOMETHING WENT WRONG');
-// });
-
-
-app.get('/random-drawing', (req, res) => {
+app.get('/bateau', (req, res) => {
     res.setHeader('Content-Type', 'text/html');
-    var randomnumber = Math.random();
-    if (randomnumber < 0.80) {
-        res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
-    } else if (randomnumber < 0.90) {
-        res.sendFile(path.join(__dirname, 'drawings/char/char.html'));
-    }  else {
-        res.sendFile(path.join(__dirname, 'drawings/saint-sebastien/saint-sebastien.html'));
-    }
+    res.sendFile(path.join(__dirname, 'drawings/bateau/bateau.html'));
+    console.log('User requested bateau.html');
+});
+
+
+app.get('/images', (req, res) => {
+    fs.readdir(savedDir, (err, files) => {
+        if (err) {
+            return res.status(500).send('Unable to scan directory');
+        }
+        const sortedFiles = files
+            .map(file => ({
+                name: file,
+                time: fs.statSync(path.join(savedDir, file)).mtime.getTime()
+            }))
+            .sort((a, b) => b.time - a.time)
+            .map(file => file.name);
+        res.json(sortedFiles);
+    });
 });
 
 
 //saving function
 app.post('/save-svg', (req, res) => {
     const {svgContent} = req.body;
+    const date = new Date();
+    const formattedDate = date.toISOString().replace(/[:.]/g, '-');
     const randomName = crypto.randomBytes(16).toString('hex');
-    const filePath = path.join(savedDir, `${randomName}.svg`);
+    const fileName = `${formattedDate}-${randomName}.svg`;
+    const filePath = path.join(savedDir, fileName);
     fs.writeFile(filePath, svgContent, (err) => {
         if (err) {
             console.error('Error saving SVG:', err);
@@ -288,7 +295,7 @@ app.get('/letter', (req, res) => {
     console.log('User requested letter.html');
 });
 
-//   _____                                      _
+//    _____                                      _
 //   / ____|                                    (_)
 //  | |     ___  _ __ ___  _ __   __ _ _ __ __ _ _ ___  ___  _ __
 //  | |    / _ \| '_ ` _ \| '_ \ / _` | '__/ _` | / __|/ _ \| '_ \
@@ -297,28 +304,28 @@ app.get('/letter', (req, res) => {
 //                        | |
 //                        |_|
 
-app.get('/comparaisonbato', (req, res) => {
+app.get('/comparaison-bateau', (req, res) => {
     res.setHeader('Content-Type', 'text/html');
-    res.sendFile(path.join(__dirname, 'Game Pages/comparaisonbato.html'));
+    res.sendFile(path.join(__dirname, 'Game Pages/comparaison-bateau.html'));
     console.log('User requested comparaison.html');
 });
 
-app.get('/comparaisonbridge', (req, res) => {
+app.get('/comparaison-bridge', (req, res) => {
     res.setHeader('Content-Type', 'text/html');
-    res.sendFile(path.join(__dirname, 'Game Pages/comparaisonbridge.html'));
-    console.log('User requested comparaisonbridge.html');
+    res.sendFile(path.join(__dirname, 'Game Pages/comparaison-bridge.html'));
+    console.log('User requested comparaison-bridge.html');
 });
 
-app.get('/comparaisonchar', (req, res) => {
+app.get('/comparaison-char', (req, res) => {
     res.setHeader('Content-Type', 'text/html');
-    res.sendFile(path.join(__dirname, 'Game Pages/comparaisonchar.html'));
-    console.log('User requested comparaisonchar.html');
+    res.sendFile(path.join(__dirname, 'Game Pages/comparaison-char.html'));
+    console.log('User requested comparaison-char.html');
 });
 
-app.get('/comparaisonsebastien', (req, res) => {
+app.get('/comparaison-sebastien', (req, res) => {
     res.setHeader('Content-Type', 'text/html');
-    res.sendFile(path.join(__dirname, 'Game Pages/comparaisonsebastien.html'));
-    console.log('User requested comparaisonsebastien.html');
+    res.sendFile(path.join(__dirname, 'Game Pages/comparaison-sebastien.html'));
+    console.log('User requested comparaison-sebastien.html');
 });
 
 app.get('/Redon_barque_mystique', (req, res) => {

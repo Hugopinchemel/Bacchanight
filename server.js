@@ -15,6 +15,7 @@ const imgDir = path.join(__dirname, 'img');
 const drawingsDir = path.join(__dirname, 'drawings');
 const gamePagesDir = path.join(__dirname, 'Game Pages');
 const galleryDir = path.join(__dirname, 'gallery');
+const svgDir = path.join(__dirname, 'svg');
 
 // Ensure 'saved' directory exists
 if (!fs.existsSync(savedDir)) {
@@ -68,6 +69,15 @@ const images = [
 images.forEach(img =>
     serveFile(`/${path.basename(img, path.extname(img))}`, path.join(imgDir, img), `image/${path.extname(img).slice(1)}`)
 );
+
+//bateau SVG files
+serveFile('/ciel', path.join(__dirname, 'drawings/bateau/bateau/ciel.svg'), 'image/svg+xml');
+serveFile('/bateau.svg', path.join(__dirname, 'drawings/bateau/bateau/ciel.svg'), 'image/svg+xml');
+serveFile('/coque.svg', path.join(__dirname, 'drawings/bateau/bateau/coque.svg'), 'image/svg+xml');
+serveFile('/interieur.svg', path.join(__dirname, 'drawings/bateau/bateau/interieur.svg'), 'image/svg+xml');
+serveFile('/mer.svg', path.join(__dirname, 'drawings/bateau/bateau/mer.svg'), 'image/svg+xml');
+serveFile('/voile.svg', path.join(__dirname, 'drawings/bateau/bateau/voile.svg'), 'image/svg+xml');
+
 
 // SVG Icons and JS files
 serveFile('/text-bubble', path.join(__dirname, 'img/text-bubble.svg'), 'image/svg+xml');

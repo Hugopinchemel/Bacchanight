@@ -27,9 +27,8 @@ body {
     flex-wrap: nowrap;
     scroll-behavior: smooth;
     gap: 80px;
-    height: 10vh;
     justify-content: flex-start;
-    width: 90vw;
+    width: 100vw;
     overflow-x: scroll;
     align-items: flex-start;
     padding: 25px;

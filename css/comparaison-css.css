@@ -17,7 +17,6 @@ body {
 }
 
 
-
 /* Boutons */
 .back-button {
     text-decoration: none;
@@ -41,6 +40,7 @@ h2 {
     font-size: 15px;
     margin-bottom: 15px;
 }
+
 .buttons {
     display: flex;
     flex-direction: row; /* Aligne les boutons en colonne (verticalement) */
@@ -76,6 +76,7 @@ h2 {
     font-weight: bold; /* Texte en gras */
     width: 100%; /* Rendre le bouton large */
 }
+
 image-container {
     display: flex;
     justify-content: center;

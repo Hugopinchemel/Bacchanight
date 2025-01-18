@@ -1,18 +1,15 @@
-$base-background-color: #191714;
-$color-white: #fff;
-$color-black: #000;
-$color-gray-light: #ddd;
-$color-gray-dark: #333;
-$button-gradient: linear-gradient(197deg, rgba(221, 243, 252, 0.10) 2.84%, rgba(255, 255, 255, 0.00) 100%), linear-gradient(19deg, rgba(17, 16, 16, 0.40) 72.07%, rgba(255, 255, 255, 0.00) 150.29%), #1A1D26;
-
 html {
-    background-color: $base-background-color;
+    background-color: #191714;
+}
+
+body {
+    font-family: Arial, sans-serif;
 }
 
 .color-picker-container {
     scroll-behavior: smooth;
     width: fit-content;
-    background: $color-white;
+    background: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -20,9 +17,9 @@ html {
 .color-preview {
     width: 100%;
     height: 50px;
-    border: 1px solid $color-gray-light;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    background-color: $color-black;
+    background-color: #000;
 }
 
 .color-palette {
@@ -36,6 +33,7 @@ html {
     overflow-x: scroll;
     align-items: flex-start;
     padding: 25px;
+
 }
 
 .color-swatch {
@@ -46,26 +44,30 @@ html {
     position: relative;
     overflow: visible;
 
-    &::before {
-        content: "";
-        position: absolute;
-        top: -10px;
-        left: -10px;
-        width: 64px;
-        height: 64px;
-        background: inherit;
-        border-radius: 50%;
-        overflow: visible;
-    }
-
-    &.selected {
-        top: -10px;
-    }
 }
+
+.color-swatch::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 64px;
+    height: 64px;
+    background: inherit;
+    border-radius: 50%;
+    overflow: visible;
+
+
+}
+
+.color-swatch.selected {
+    top: -10px;
+}
+
 
 .color-code {
     font-size: 14px;
-    color: $color-gray-dark;
+    color: #333;
 }
 
 .coloring-zones-container {
@@ -80,10 +82,10 @@ html {
     position: absolute;
     left: 10vw;
     top: -20vw;
+}
 
-    path {
-        pointer-events: all;
-    }
+.coloring-zone path {
+    pointer-events: all;
 }
 
 #picture {
@@ -110,21 +112,54 @@ html {
     justify-content: space-around;
     align-items: center;
     padding-bottom: 5vh;
+}
 
-    #save-btn, #download-btn {
-        font-family: 'Raleway', sans-serif;
-        color: $color-white;
-        font-size: 16px;
-        width: 40vw;
-        height: 50px;
-        border-radius: 50px;
-        background: $button-gradient;
-        background-blend-mode: normal, overlay, normal;
-    }
+#save-btn, #download-btn {
+    font-family: Raleway, sans-serif;
+    color: #fff;
+    font-size: 16px;
+    width: 40vw;
+    height: 50px;
+    border-radius: 50px;
+    background: var(--Fond, linear-gradient(197deg, rgba(221, 243, 252, 0.10) 2.84%, rgba(255, 255, 255, 0.00) 100%), linear-gradient(19deg, rgba(17, 16, 16, 0.40) 72.07%, rgba(255, 255, 255, 0.00) 150.29%), #1A1D26);
+    background-blend-mode: normal, overlay, normal;
 }
 
 .bottom-section {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+.see-my-thoughts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    align-self: auto;
+}
+
+.see-my-thoughts-div {
+    font: 1.5em 'EduAUVICWANTHand';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1A1D26;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px;
+    border-top: 1px solid #333;
+
+
+}
+
+.side-text{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5vh;
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
 }

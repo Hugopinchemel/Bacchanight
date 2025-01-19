@@ -211,22 +211,6 @@ htmlbateau = HTMLbateau.replace("## SVG CODE ##", compound);
 app.get('/bateau', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.send(htmlbateau);
-  res.write(`
-    <script>
-      function adjustForNavbar() {
-        const coloringZone = document.querySelector('.coloring-zone');
-        const bottomSection = document.querySelector('.bottom-section');
-
-        const viewportHeight = window.innerHeight;
-        const bottomSectionHeight = bottomSection.offsetHeight;
-
-        coloringZone.style.height = \`\${viewportHeight - bottomSectionHeight}px\`;
-      }
-
-      window.addEventListener('resize', adjustForNavbar);
-      window.addEventListener('load', adjustForNavbar);
-    </script>
-  `);
   console.log('User requested bateau.html');
 
 });

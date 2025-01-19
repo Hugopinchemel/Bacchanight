@@ -19,7 +19,7 @@ const app = express();
 // const host = process.env.HOST || 'localhost';
 
 
-const port = process.env.PORT || 8081;
+const port = process.env.PORT || 8080;
 
 const savedDir = path.join(__dirname, 'saved');
 if (!fs.existsSync(savedDir)) {
@@ -207,7 +207,6 @@ let interieur = fs.readFileSync('drawings/bateau/bateau/interieur.svg').toString
 let HTMLbateau = fs.readFileSync('drawings/bateau/bateau.html').toString();
 let compound = ciel + coque + voile + mer + interieur;
 htmlbateau = HTMLbateau.replace("## SVG CODE ##", compound);
-console.log(htmlbateau);
 
 app.get('/bateau', (req, res) => {
     res.setHeader('Content-Type', 'text/html');

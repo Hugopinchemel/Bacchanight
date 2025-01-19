@@ -28,3 +28,4 @@ document.querySelectorAll('.coloring-zone path').forEach((zone) => {
         zone.setAttribute('fill', selectedColor);
     });
 });
+

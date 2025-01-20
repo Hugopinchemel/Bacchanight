@@ -30,8 +30,7 @@ body {
 .color-palette {
     display: flex;
     gap: 80px;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding: 25px;
     width: 100vw;
     overflow-x: scroll;
     align-items: flex-start;
@@ -66,6 +65,10 @@ body {
     color: #333;
 }
 
+
+.coloring-zone path {
+    pointer-events: all;
+}
 
 #picture {
     position: absolute;
@@ -105,11 +108,8 @@ body {
 }
 
 .bottom-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 9999;
+    position: fixed;
+    width: 100%;
 }
 
 .see-my-thoughts {
@@ -151,26 +151,21 @@ a {
     position: absolute;
     top: 5vh;
     align-self: center;
-
+    pointer-events: none;
 }
 
 .coloring-zone svg {
+    aspect-ratio: 3/4;
     width: 100vw;
     height: 75vw;
     position: absolute;
-
 }
 
 .coloring-zone img {
     width: 100vw;
     height: 75vw;
-    z-index: 0;
+    z-index: 9999;
     pointer-events: none;
     object-fit: contain;
     opacity: 0.75;
 }
-
-.coloring-zone path {
-    pointer-events: all;
-}
-

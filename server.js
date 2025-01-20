@@ -204,7 +204,7 @@ let voile = fs.readFileSync('drawings/bateau/bateau/voile.svg').toString();
 let mer = fs.readFileSync('drawings/bateau/bateau/mer.svg').toString();
 let interieur = fs.readFileSync('drawings/bateau/bateau/interieur.svg').toString();
 let HTMLbateau = fs.readFileSync('drawings/bateau/bateau.html').toString();
-let compound = ciel + coque + mer + interieur + voile;
+let compound = ciel + coque + voile + mer + interieur;
 htmlbateau = HTMLbateau.replace("## SVG CODE ##", compound);
 
 
@@ -212,7 +212,6 @@ app.get('/bateau', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.send(htmlbateau);
   console.log('User requested bateau.html');
-
 });
 
 app.get('/odilon', (req, res) => {
@@ -254,15 +253,15 @@ app.get('/credits', (req, res) => {
 });
 
 app.get('/mmi-logo', (req, res) => {
-  res.setHeader('Content-Type', 'image/svg+xml');
-  res.sendFile(path.join(__dirname, 'icons/mmi-logo.svg'));
-  console.log('User requested mmi-logo.svg');
+  res.setHeader('Content-Type', 'image/png');
+  res.sendFile(path.join(__dirname, 'img/mmi-logo.png'));
+  console.log('User requested mmi-logo.png');
 });
 
 app.get('/musba-logo', (req, res) => {
-  res.setHeader('Content-Type', 'image/svg+xml');
-  res.sendFile(path.join(__dirname, 'icons/musba-logo.svg'));
-  console.log('User requested musba-logo.svg');
+  res.setHeader('Content-Type', 'image/png');
+  res.sendFile(path.join(__dirname, 'img/musba-logo.png'));
+  console.log('User requested musba-logo.png');
 });
 
 app.get('/logo', (req, res) => {

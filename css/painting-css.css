@@ -4,19 +4,14 @@ html {
 
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    flex-direction: column-reverse;
 }
 
 .color-picker-container {
     scroll-behavior: smooth;
     width: fit-content;
     background: #fff;
-
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .color-preview {
@@ -29,12 +24,15 @@ body {
 
 .color-palette {
     display: flex;
+    flex-wrap: nowrap;
+    scroll-behavior: smooth;
     gap: 80px;
-    padding: 25px;
+    justify-content: flex-start;
     width: 100vw;
     overflow-x: scroll;
     align-items: flex-start;
-    justify-content: flex-start;
+    padding: 25px;
+
 }
 
 .color-swatch {
@@ -43,6 +41,8 @@ body {
     border-radius: 50%;
     cursor: pointer;
     position: relative;
+    overflow: visible;
+
 }
 
 .color-swatch::before {
@@ -54,17 +54,34 @@ body {
     height: 64px;
     background: inherit;
     border-radius: 50%;
+    overflow: visible;
+
+
 }
 
 .color-swatch.selected {
     top: -10px;
 }
 
+
 .color-code {
     font-size: 14px;
     color: #333;
 }
 
+.coloring-zones-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.coloring-zone {
+    cursor: pointer;
+    pointer-events: none;
+    position: absolute;
+    left: 10vw;
+    top: -20vw;
+}
 
 .coloring-zone path {
     pointer-events: all;
@@ -109,6 +126,7 @@ body {
 
 .bottom-section {
     position: fixed;
+    bottom: 0;
     width: 100%;
 }
 
@@ -117,18 +135,22 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 16px;
+    align-self: auto;
     padding: 10px;
 }
 
 .see-my-thoughts-div {
+    font: 1.5em 'EduAUVICWANTHand';
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #1A1D26;
     color: #fff;
+    font-size: 16px;
     padding: 10px;
     border-top: 1px solid #333;
-    font: 1.5em 'EduAUVICWANTHand';
+
+
 }
 
 .side-text {
@@ -138,34 +160,6 @@ body {
 }
 
 a {
-    color: #000;
+    color: #000000;
     text-decoration: none;
-}
-
-
-
-.coloring-zone {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 5vh;
-    align-self: center;
-    pointer-events: none;
-}
-
-.coloring-zone svg {
-    aspect-ratio: 3/4;
-    width: 100vw;
-    height: 75vw;
-    position: absolute;
-}
-
-.coloring-zone img {
-    width: 100vw;
-    height: 75vw;
-    z-index: 9999;
-    pointer-events: none;
-    object-fit: contain;
-    opacity: 0.75;
 }

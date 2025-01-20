@@ -253,15 +253,15 @@ app.get('/credits', (req, res) => {
 });
 
 app.get('/mmi-logo', (req, res) => {
-  res.setHeader('Content-Type', 'image/png');
-  res.sendFile(path.join(__dirname, 'img/mmi-logo.png'));
-  console.log('User requested mmi-logo.png');
+  res.setHeader('Content-Type', 'image/svg+xml');
+  res.sendFile(path.join(__dirname, 'icons/mmi-logo.svg'));
+  console.log('User requested mmi-logo.svg');
 });
 
 app.get('/musba-logo', (req, res) => {
-  res.setHeader('Content-Type', 'image/png');
-  res.sendFile(path.join(__dirname, 'img/musba-logo.png'));
-  console.log('User requested musba-logo.png');
+  res.setHeader('Content-Type', 'image/svg+xml');
+  res.sendFile(path.join(__dirname, 'icons/musba-logo.svg'));
+  console.log('User requested musba-logo.svg');
 });
 
 app.get('/logo', (req, res) => {

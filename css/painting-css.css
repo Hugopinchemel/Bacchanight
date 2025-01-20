@@ -67,10 +67,6 @@ body {
 }
 
 
-.coloring-zone path {
-    pointer-events: all;
-}
-
 #picture {
     position: absolute;
     top: -20vw;
@@ -155,15 +151,14 @@ a {
     position: absolute;
     top: 5vh;
     align-self: center;
-    pointer-events: none;
+
 }
 
 .coloring-zone svg {
-    aspect-ratio: 3/4;
     width: 100vw;
     height: 75vw;
     position: absolute;
-    z-index: -10;
+
 }
 
 .coloring-zone img {
@@ -174,3 +169,8 @@ a {
     object-fit: contain;
     opacity: 0.75;
 }
+
+.coloring-zone path {
+    pointer-events: all;
+}
+

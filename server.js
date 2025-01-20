@@ -204,7 +204,7 @@ let voile = fs.readFileSync('drawings/bateau/bateau/voile.svg').toString();
 let mer = fs.readFileSync('drawings/bateau/bateau/mer.svg').toString();
 let interieur = fs.readFileSync('drawings/bateau/bateau/interieur.svg').toString();
 let HTMLbateau = fs.readFileSync('drawings/bateau/bateau.html').toString();
-let compound = ciel + coque + voile + mer + interieur;
+let compound = ciel + coque + mer + interieur + voile;
 htmlbateau = HTMLbateau.replace("## SVG CODE ##", compound);
 
 

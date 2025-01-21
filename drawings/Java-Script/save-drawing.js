@@ -20,21 +20,24 @@ function downloadSvgToDevice(svgContent) {
   link.download = 'drawing.svg';
   link.click();
 
-  URL.revokeObjectURL(url); // Clean up the URL object
+  URL.revokeObjectURL(url);
 }
 
 saveButton.addEventListener('click', async () => {
-  result.innerHTML = ''; // Clear previous result
+  result.innerHTML = '';
   document.querySelectorAll('.coloring-zone svg').forEach((svg) => {
     svg.childNodes.forEach((svgChild) => {
       result.appendChild(svgChild.cloneNode(true));
     });
   });
 
+  result.removeAttribute('viewBox')
+  result.setAttribute('viewBox', 'viewBox="0 0 3120 2400"');
+  result.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+  result.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink');
+
   const svgContent = result.outerHTML;
 
   // Save SVG to the server
-  await saveSvgToServer(svgContent);
-  // Optionally, download SVG to the device
-  downloadSvgToDevice(svgContent);
+  await saveSvgToServer(svgContent)
 });

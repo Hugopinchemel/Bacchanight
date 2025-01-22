@@ -180,7 +180,7 @@ app.post('/save-svg', (req, res) => {
 
 
 //route for color-palette.js
-app.get('/save', (req, res) => {
+app.get('/save-svg', (req, res) => {
     res.setHeader('Content-Type', 'application/javascript');
     res.sendFile(path.join(__dirname, 'drawings/Java-Script/save-drawing.js'));
     console.log('User requested save-drawing.js');
@@ -378,6 +378,13 @@ app.get('/char', (req, res) => {
     res.sendFile(path.join(__dirname, 'img/char.png'));
     console.log('User requested char.png');
 });
+
+app.get('/barque', (req, res) => {
+    res.setHeader('Content-Type', 'image/png');
+    res.sendFile(path.join(__dirname, 'img/Redon_barque_mystique.jpg'));
+    console.log('User requested char.png');
+});
+
 
 
 //   ______          _

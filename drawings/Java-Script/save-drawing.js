@@ -12,16 +12,6 @@ async function saveSvgToServer(svgContent) {
   });
 }
 
-function downloadSvgToDevice(svgContent) {
-  const blob = new Blob([svgContent], {type: 'image/svg+xml'});
-  const url = URL.createObjectURL(blob);
-
-  link.href = url;
-  link.download = 'drawing.svg';
-  link.click();
-
-  URL.revokeObjectURL(url);
-}
 
 saveButton.addEventListener('click', async () => {
   result.innerHTML = '';
@@ -47,4 +37,6 @@ saveButton.addEventListener('click', async () => {
 
   // Save SVG to the server
   await saveSvgToServer(svgContent);
+  location.href='/save-svg'
+
 });

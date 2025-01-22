@@ -90,3 +90,9 @@ img {
     width: 100%; /* Adapte l'image à la largeur du conteneur */
     height: auto; /* Conserve les proportions */
 }
+
+.comparaison-text {
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+}

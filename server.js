@@ -4,8 +4,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const crypto = require('crypto');
 const fontsDir = path.join(__dirname, 'fonts');
-
-
 const app = express();
 
 
@@ -31,6 +29,12 @@ app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
 app.use(bodyParser.json());
+
+app.get('/favicon.ico', (req, res) => {
+    res.setHeader('Content-Type', 'image/x-icon');
+    res.sendFile(path.join(__dirname, 'icons/favicon.ico'));
+    console.log('User requested favicon.ico');
+});
 
 
 //   _____                _
@@ -436,8 +440,8 @@ app.use((req, res) => {
 //
 
 
-var server = app.listen(port, function () {
-    var host = server.address().address
-    var port = server.address().port
+const server = app.listen(port, function () {
+    const host = server.address().address;
+    const port = server.address().port;
     console.log('App listening at https://%s:%s', host, port)
 });

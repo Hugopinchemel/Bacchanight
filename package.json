@@ -1,20 +1,18 @@
 {
-  "name": "your-project-name",
+  "name": "baccahnight-new",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
-  "engines": {
-    "node": "22.x"
+  "keywords": [],
+  "author": "Hugo Pinchemel, Beney Kilian, Esthebann Vollé, Brice Breart, Noah Laborde, Roxane Horshower",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "express": "^4.21.2"
   },
   "dependencies": {
-    "@svgdotjs/svg.js": "^3.2.4",
-    "express": "^4.17.1",
-    "sharp": "^0.33.5",
-    "ws": "^8.18.0"
-  },
-  "devDependencies": {
     "body-parser": "^1.20.3"
   }
 }

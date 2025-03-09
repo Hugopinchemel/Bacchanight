@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url("/background-credits");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: #FFFFFF;
+}
+
+body, h1, h2, ul, li, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, ul, li, a, p {
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+
+header {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.back-button {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 22px;
+    display: inline-block;
+}
+
+/* Plus grande taille par défaut */
+h1 {
+    font-size: 48px; /* Grossir encore plus pour les titres */
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+/* Liste et autres textes */
+.team-list {
+    font-size: 24px; /* Texte de liste également plus grand */
+    line-height: 1.8;
+}
+
+/* Ajuste pour mobile */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 40px; /* Réduction légère pour mobile */
+    }
+
+    h2 {
+        font-size: 32px;
+    }
+
+    .back-button {
+        font-size: 20px;
+    }
+
+    .team-list {
+        font-size: 20px;
+    }
+
+    body {
+        padding: 10px; /* Ajout d'un espacement pour éviter tout débordement */
+    }
+}
+
+/* Team List */
+.team-list {
+    list-style: none;
+    text-align: left;
+    margin: 0 auto 20px auto;
+    padding: 0;
+    width: fit-content;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* Centered logo */
+.logo-center {
+    margin: 20px 0;
+}
+
+.logo-center img {
+    max-width: 100px;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.footer-logo {
+    max-width: 100px;
+}
+

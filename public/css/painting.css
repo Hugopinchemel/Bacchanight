@@ -1,0 +1,150 @@
+html {
+    background-color: #191714;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+}
+
+
+section.painting-area {
+    position: relative;
+    width: 80vw;
+    height: 60vh;
+    min-height: 60vh;
+    pointer-events: none;
+}
+
+section.painting-area path {
+    pointer-events: all;
+}
+
+section.painting-area svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(1px);
+}
+
+
+section.painting-area img {
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.75;
+    width: 100%;
+    height: 100%;
+}
+
+section.bottom-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    width: 100vw;
+    height: 40vh;
+    min-height: 40vh;
+}
+
+.color-picker-container {
+    scroll-behavior: smooth;
+    width: fit-content;
+    background: #fff;
+
+}
+
+.color-palette {
+    display: flex;
+    gap: 80px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    width: 100vw;
+    overflow-x: scroll;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.color-swatch {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+}
+
+.color-swatch::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 64px;
+    height: 64px;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.color-swatch.selected {
+    top: -10px;
+}
+
+.color-code {
+    font-size: 14px;
+    color: #333;
+}
+
+#save-btn {
+    align-content: center;
+    justify-content: center;
+    height: 5vh;
+    font-family: Poppins, serif;
+    color: white;
+    font-size: 1em;
+    margin-top: 1em;
+    padding: 0.5em 1em;
+    border: 2px solid black;
+    background-color: black;
+    border-radius: 20px;
+}
+
+.thought {
+    font-family: 'KyivTypeSans';
+    font-size: 1.5em;
+    min-height: 40vh;
+
+}
+
+.thought-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100%;
+}
+
+.thought-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 20%;
+    gap: 10px;
+    width: 50vw;
+    height: 100%;
+}
+
+.thought-text img {
+    width: 100%;
+    aspect-ratio: auto
+}

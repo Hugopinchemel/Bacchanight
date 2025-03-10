@@ -5,8 +5,6 @@ const crypto = require('crypto');
 const fontsDir = path.join(__dirname, 'public/assets/fonts');
 const app = express();
 
-const port = process.env.PORT || 8080;
-
 
 const savedDir = path.join(__dirname, 'saved');
 if (fs.existsSync(savedDir)) {
@@ -390,8 +388,8 @@ app.get('/background-credits', (req, res) => {
 });
 
 
-let server = app.listen(port, function () {
-    let host = server.address().address;
-    let port = server.address().port;
+var server = app.listen(process.env.PORT || 3000, function () {
+    var host = server.address().address
+    var port = server.address().port
     console.log('App listening at https://%s:%s', host, port)
-});
+})

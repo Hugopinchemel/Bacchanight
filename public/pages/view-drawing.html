@@ -8,14 +8,35 @@
     <link href="/font-css" rel="stylesheet">
     <link href="/view-drawing-css" rel="stylesheet">
 </head>
-<body>
-<h1>Votre création</h1>
-<div class="drawing-container">
-    ##SVG_CONTENT##
-</div>
+<body class="drawing-type-##DRAWING_TYPE##">
+<h1>Voici mes deux créations, comparons celle de mon rêve à ma peinture originale :</h1>
+<section class="painting-area">
+    <div class="drawing-container drawing-container-##DRAWING_TYPE##">
+        ##SVG_CONTENT##
+    </div>
+
+    <div class="drawing-container drawing-container-##DRAWING_TYPE##">
+        <img src="##COMPARE_IMAGE##">
+    </div>
+
+    <div class="informations">
+        <div class="information">
+            <h2>Informations sur l'œuvre</h2>
+            <p>Titre : ##TITLE##</p>
+            <p>Auteur : Odilon Redon</p>
+        </div>
+    </div>
+
+    <div class="bottom-section">
+        <p>Merci de m'avoir aidé, dois-je continuer mon rêve ?</p>
+        <img alt="" src="/text-bubble">
+        <img alt="" src="/odilon">
+    </div>
+
+</section>
 <div class="actions">
-    <a href="/">Retour à l'accueil</a>
-    <a href="/download/##FILENAME##" download="creation.svg">Télécharger</a>
+    <a class="btn-blanc" href="/">Non</a>
+    <a class="btn-noir" href="/sebastien">Oui</a>
 </div>
 </body>
 </html>

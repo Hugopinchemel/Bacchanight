@@ -3,7 +3,7 @@ const result = document.createElement('svg');
 
 async function saveSvgToServer(svgContent) {
     try {
-        const response = await fetch('/save-svg-sebastien', {
+        const response = await fetch('/save-svg', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

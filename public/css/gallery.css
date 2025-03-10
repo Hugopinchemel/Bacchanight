@@ -1,0 +1,177 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #ffffff;
+    padding: 2rem;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #222;
+}
+
+.home-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.filters {
+    display: flex;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    background-color: #ddd;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.filter-btn:hover {
+    background-color: #ccc;
+}
+
+.filter-btn.active {
+    background-color: #333;
+    color: white;
+}
+
+
+.gallery-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnail-placeholder {
+    height: 200px;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.thumbnail-iframe {
+    width: 100%;
+    height: 200px;
+    border: none;
+    overflow: hidden;
+}
+
+.item-info {
+    padding: 1rem;
+    display: none;
+}
+
+.thumbnail-image {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    background-color: #f9f9f9;
+}
+
+.thumbnail-image {
+    width: 100%;
+    height: 200px;
+    border: none;
+    overflow: hidden;
+    background-color: #f9f9f9;
+}
+
+
+.view-btn {
+    display: none;
+    margin-top: 0.5rem;
+    padding: 0.3rem 1rem;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.loading, .no-items {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+}
+
+.thumbnail-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+}
+
+.gallery-item {
+    width: 600px;
+    margin: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: white;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.thumbnail-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 75%; /* Default aspect ratio */
+    overflow: hidden;
+    background-color: #f9f9f9;
+}
+
+.thumbnail-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    object-fit: contain;
+}
+
+/* Fix gallery layout */
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Make sure aspect ratio is respected */
+.gallery-item.boat .thumbnail-container {
+    padding-bottom: 65%;  /* 3:2 ratio */
+}
+
+.gallery-item.sebastien .thumbnail-container {
+    padding-bottom: 130%; /* 4:5 ratio (taller) */
+}
+
+.gallery-item.char .thumbnail-container {
+    padding-bottom: 120%; /* Based on 1885:2290 */
+}

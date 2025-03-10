@@ -24,6 +24,7 @@
             <h2>Informations sur l'œuvre</h2>
             <p>Titre : ##TITLE##</p>
             <p>Auteur : Odilon Redon</p>
+            <a class="info-link" href="##LINK##" target="_blank">Découvrir l'oeuvre</a>
         </div>
     </div>
 
@@ -35,8 +36,27 @@
 
 </section>
 <div class="actions">
-    <a class="btn-blanc" href="/">Non</a>
-    <a class="btn-noir" href="/sebastien">Oui</a>
+    <a class="btn-blanc" href="/">Quitter</a>
+    <a class="btn-noir" id="next-painting">Continuer</a>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const body = document.body;
+        const nextButton = document.getElementById('next-painting');
+
+        // Fix the class detection based on URL path
+        const currentPath = window.location.pathname;
+
+        if (currentPath.includes('view-bateau')) {
+            nextButton.href = '/sebastien';
+        } else if (currentPath.includes('view-sebastien')) {
+            nextButton.href = '/char';
+        } else if (currentPath.includes('view-char')) {
+            nextButton.href = '/';
+            nextButton.textContent = 'Terminer';
+        }
+    });
+</script>
 </body>
 </html>

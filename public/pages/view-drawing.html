@@ -8,14 +8,55 @@
     <link href="/font-css" rel="stylesheet">
     <link href="/view-drawing-css" rel="stylesheet">
 </head>
-<body>
-<h1>Votre création</h1>
-<div class="drawing-container">
-    ##SVG_CONTENT##
-</div>
+<body class="drawing-type-##DRAWING_TYPE##">
+<h1>Voici mes deux créations, comparons celle de mon rêve à ma peinture originale :</h1>
+<section class="painting-area">
+    <div class="drawing-container drawing-container-##DRAWING_TYPE##">
+        ##SVG_CONTENT##
+    </div>
+
+    <div class="drawing-container drawing-container-##DRAWING_TYPE##">
+        <img src="##COMPARE_IMAGE##">
+    </div>
+
+    <div class="informations">
+        <div class="information">
+            <h2>Informations sur l'œuvre</h2>
+            <p>Titre : ##TITLE##</p>
+            <p>Auteur : Odilon Redon</p>
+            <a class="info-link" href="##LINK##" target="_blank">Découvrir l'oeuvre</a>
+        </div>
+    </div>
+
+    <div class="bottom-section">
+        <p>Merci de m'avoir aidé, dois-je continuer mon rêve ?</p>
+        <img alt="" src="/text-bubble">
+        <img alt="" src="/odilon">
+    </div>
+
+</section>
 <div class="actions">
-    <a href="/">Retour à l'accueil</a>
-    <a href="/download/##FILENAME##" download="creation.svg">Télécharger</a>
+    <a class="btn-blanc" href="/">Quitter</a>
+    <a class="btn-noir" id="next-painting">Continuer</a>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const body = document.body;
+        const nextButton = document.getElementById('next-painting');
+
+        // Fix the class detection based on URL path
+        const currentPath = window.location.pathname;
+
+        if (currentPath.includes('view-bateau')) {
+            nextButton.href = '/sebastien';
+        } else if (currentPath.includes('view-sebastien')) {
+            nextButton.href = '/char';
+        } else if (currentPath.includes('view-char')) {
+            nextButton.href = '/';
+            nextButton.textContent = 'Terminer';
+        }
+    });
+</script>
 </body>
 </html>

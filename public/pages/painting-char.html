@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Bacchanight</title>
+    <link href="/reset-css" rel="stylesheet">
+    <link href="/font-css" rel="stylesheet">
+    <link href="/painting-css" rel="stylesheet">
+</head>
+<body>
+
+<section class="comparaison" style="display: none;">
+    <a href="/"><img alt="" src="/arrow-left"> Retour vers l’accueil</a>
+    <p> Voici mes deux créations, comparons celle de mon rêve à ma peinture originale :</p>
+</section>
+
+<section class="painting-area">
+    ## SVG CODE ##
+    <img alt="" class="texture" src="/char-texture">
+</section>
+
+<section class="bottom-section">
+    <div class="color-picker-container">
+        <div class="color-palette" id="colorPalette"></div>
+    </div>
+    <a href="#thought" id="see-my-thought">Voir ma pensée ?</a>
+    <a href="#" id="save-btn">Faire sécher la toile</a>
+</section>
+<section class="thought" id="thought" style="display: none;">
+    <div class="thought-container">
+        <img src="/odilon">
+        <div class="thought-text">
+            ## TEXT PENSEE ##
+            <img class="texture" src="/left-thought-bubble">
+        </div>
+    </div>
+</section>
+
+<script src="/color-palette" type="module"></script>
+<script src="/save-char" type="module"></script>
+<script src="/painting-js" type="module"></script>
+</body>
+</html>

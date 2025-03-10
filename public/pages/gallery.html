@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Galerie - Bacchanight</title>
+    <link href="/reset-css" rel="stylesheet">
+    <link href="/font-css" rel="stylesheet">
+    <link href="/gallery-css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h1>Galerie des œuvres</h1>
+    <a class="home-link" href="/">Retour à l'accueil</a>
+</header>
+
+
+<div class="gallery-container" id="gallery">
+    <div class="loading">Chargement des œuvres...</div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const galleryEl = document.getElementById('gallery');
+        let currentFilter = 'all';
+        let lastUpdateTime = 0;
+        let drawings = [];
+
+        // Filter buttons functionality
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.filter;
+                renderGallery(drawings);
+            });
+        });
+
+        // Function to fetch drawings data
+        async function fetchDrawings() {
+            try {
+                const response = await fetch('/api/drawings');
+                if (!response.ok) throw new Error('Failed to fetch drawings');
+
+                const newDrawings = await response.json();
+
+                // Check if there are new drawings
+                if (JSON.stringify(newDrawings) !== JSON.stringify(drawings)) {
+                    drawings = newDrawings;
+                    renderGallery(drawings);
+                }
+
+                lastUpdateTime = Date.now();
+            } catch (error) {
+                console.error('Error fetching drawings:', error);
+            }
+        }
+
+        // Function to render gallery items
+        function renderGallery(items) {
+            galleryEl.innerHTML = '';
+
+            // Debug info - remove after fixing
+            console.log('All drawings:', items.map(d => ({file: d.filename, type: d.type})));
+
+            // Filter drawings based on current filter
+            const filteredDrawings = currentFilter === 'all'
+                ? items
+                : items.filter(drawing => drawing.type === currentFilter);
+
+            console.log('Filtered drawings:', filteredDrawings.map(d => ({file: d.filename, type: d.type})));
+
+            // Rest of the function...
+
+
+            // Filter drawings based on current filter
+
+            if (filteredDrawings.length === 0) {
+                galleryEl.innerHTML = '<p class="no-items">Aucune œuvre trouvée</p>';
+                return;
+            }
+
+            // Sort by timestamp (most recent first)
+            filteredDrawings.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
+
+            // Create gallery items
+            filteredDrawings.forEach(drawing => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = `gallery-item ${drawing.type}`;
+
+                // Use a placeholder initially and load the actual SVG later
+                galleryItem.innerHTML = `
+                        <div class="thumbnail-placeholder" data-filename="${drawing.filename}"></div>
+                        <div class="item-info">
+                            <p>Type: ${getTypeLabel(drawing.type)}</p>
+                            <a href="${drawing.viewUrl}" class="view-btn">Voir</a>
+                        </div>
+                    `;
+
+                galleryEl.appendChild(galleryItem);
+            });
+
+            // Load thumbnails lazily
+            lazyLoadThumbnails();
+        }
+
+        // Convert type codes to readable labels
+        function getTypeLabel(type) {
+            switch (type) {
+                case 'boat':
+                    return 'La Barque Mystique';
+                case 'sebastien':
+                    return 'Saint Sébastien';
+                case 'char':
+                    return 'Le Char d\'Apollon';
+                default:
+                    return type;
+            }
+        }
+
+        // Update the gallery.html file's lazyLoadThumbnails function:
+
+        function lazyLoadThumbnails() {
+            const visiblePlaceholders = Array.from(document.querySelectorAll('.thumbnail-placeholder'))
+                .filter(el => {
+                    const rect = el.getBoundingClientRect();
+                    return (
+                        rect.top >= 0 &&
+                        rect.left >= 0 &&
+                        rect.bottom <= window.innerHeight &&
+                        rect.right <= window.innerWidth
+                    );
+                });
+
+            visiblePlaceholders.forEach(placeholder => {
+                const filename = placeholder.dataset.filename;
+                const drawing = drawings.find(d => d.filename === filename);
+                const parentItem = placeholder.closest('.gallery-item');
+
+                // Make sure parent item has correct type class
+                if (parentItem && drawing.type) {
+                    if (!parentItem.classList.contains(drawing.type)) {
+                        parentItem.classList.add(drawing.type);
+                    }
+                }
+
+                // Create iframe with better SVG handling
+                placeholder.innerHTML = `
+      <div class="thumbnail-container">
+        <iframe
+          src="about:blank"
+          class="thumbnail-image"
+          srcdoc="
+            <!DOCTYPE html>
+            <html>
+              <head>
+                <style>
+                  body, html {
+                    margin: 0;
+                    padding: 0;
+                    overflow: hidden;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  }
+                  object {
+                    max-width: 100%;
+                    max-height: 100%;
+                    object-fit: contain;
+                  }
+                </style>
+              </head>
+              <body>
+                <object data='/raw-svg/${drawing.filename}' type='image/svg+xml' width='100%' height='100%'></object>
+              </body>
+            </html>
+          "
+          loading="lazy"
+          scrolling="no"
+          frameborder="0">
+        </iframe>
+      </div>
+    `;
+                placeholder.classList.remove('thumbnail-placeholder');
+            });
+        }
+
+        // Initial fetch
+        fetchDrawings();
+
+        // Refresh every 30 seconds
+        setInterval(() => {
+            // Only refresh if it's been more than 25 seconds since last successful update
+            if (Date.now() - lastUpdateTime > 25000) {
+                fetchDrawings();
+            }
+        }, 30000);
+
+        // Listen for scroll events to lazy load more thumbnails
+        window.addEventListener('scroll', lazyLoadThumbnails, {passive: true});
+    });
+</script>
+</body>
+</html>

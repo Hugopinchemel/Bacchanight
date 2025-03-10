@@ -7,13 +7,15 @@ const app = express();
 
 
 const savedDir = path.join(__dirname, 'saved');
-if (fs.existsSync(savedDir)) {
-    fs.rmSync(savedDir, {recursive: true, force: true});
-    fs.mkdirSync(savedDir);
-    console.log(`Dossier 'saved' vidé et recréé.`);
-} else {
+try {
+    if (fs.existsSync(savedDir)) {
+        fs.rmSync(savedDir, {recursive: true, force: true});
+    }
     fs.mkdirSync(savedDir, {recursive: true});
-    console.log(`Dossier 'saved' créé.`);
+    console.log(`Dossier 'saved' préparé.`);
+} catch (error) {
+    console.error(`Erreur avec le dossier 'saved': ${error.message}`);
+    // Continue anyway - create alternative storage solution if needed
 }
 
 app.use(express.json({ limit: '50mb' }));
@@ -388,8 +390,10 @@ app.get('/background-credits', (req, res) => {
 });
 
 
-var server = app.listen(process.env.PORT || 3000, function () {
-    var host = server.address().address
-    var port = server.address().port
-    console.log('App listening at https://%s:%s', host, port)
-})
+const PORT = process.env.PORT || 3000;
+
+var server = app.listen(PORT, function () {
+    console.log(`App listening on port ${PORT}`);
+}).on('error', function(err) {
+    console.error('Failed to start server:', err);
+});
